@@ -1,5 +1,1246 @@
 [
   {
+    "slug": "carmen-suite-bolero-27-02-2026",
+    "title": "Carmen Suite & Bolero",
+    "date": "2026-02-27",
+    "cover": "DSCF7978_resized.jpg",
+    "archiveUrl": null,
+    "photos": [
+      {
+        "name": "DSCF7827_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7827_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7827_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7827_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF7828_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7828_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7828_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7828_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF7831_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7831_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7831_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7831_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF7835_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7835_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7835_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7835_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF7861_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7861_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7861_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7861_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF7887_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7887_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7887_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7887_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF7894_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7894_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7894_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7894_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF7897_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7897_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7897_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7897_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF7914_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7914_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7914_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7914_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF7929_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7929_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7929_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7929_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF7933_resized.jpg",
+        "width": 1366,
+        "height": 2048,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7933_resized-640.webp",
+            "width": 427,
+            "height": 640
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7933_resized-1600.webp",
+            "width": 1067,
+            "height": 1600
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7933_resized-2048.jpg",
+            "width": 1366,
+            "height": 2048
+          }
+        ]
+      },
+      {
+        "name": "DSCF7954_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7954_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7954_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7954_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF7957_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7957_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7957_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7957_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF7959_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7959_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7959_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7959_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF7971_resized.jpg",
+        "width": 1366,
+        "height": 2048,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7971_resized-640.webp",
+            "width": 427,
+            "height": 640
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7971_resized-1600.webp",
+            "width": 1067,
+            "height": 1600
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7971_resized-2048.jpg",
+            "width": 1366,
+            "height": 2048
+          }
+        ]
+      },
+      {
+        "name": "DSCF7972_resized.jpg",
+        "width": 1366,
+        "height": 2048,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7972_resized-640.webp",
+            "width": 427,
+            "height": 640
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7972_resized-1600.webp",
+            "width": 1067,
+            "height": 1600
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7972_resized-2048.jpg",
+            "width": 1366,
+            "height": 2048
+          }
+        ]
+      },
+      {
+        "name": "DSCF7973_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7973_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7973_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7973_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF7974_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7974_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7974_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7974_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF7975_resized.jpg",
+        "width": 1366,
+        "height": 2048,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7975_resized-640.webp",
+            "width": 427,
+            "height": 640
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7975_resized-1600.webp",
+            "width": 1067,
+            "height": 1600
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7975_resized-2048.jpg",
+            "width": 1366,
+            "height": 2048
+          }
+        ]
+      },
+      {
+        "name": "DSCF7977_resized.jpg",
+        "width": 1366,
+        "height": 2048,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7977_resized-640.webp",
+            "width": 427,
+            "height": 640
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7977_resized-1600.webp",
+            "width": 1067,
+            "height": 1600
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7977_resized-2048.jpg",
+            "width": 1366,
+            "height": 2048
+          }
+        ]
+      },
+      {
+        "name": "DSCF7978_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7978_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7978_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7978_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF7979_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7979_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7979_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7979_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF7996_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7996_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7996_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7996_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF7997_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7997_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7997_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7997_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF7998_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7998_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7998_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF7998_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8009_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8009_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8009_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8009_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8010_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8010_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8010_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8010_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8017_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8017_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8017_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8017_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8018_resized.jpg",
+        "width": 1366,
+        "height": 2048,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8018_resized-640.webp",
+            "width": 427,
+            "height": 640
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8018_resized-1600.webp",
+            "width": 1067,
+            "height": 1600
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8018_resized-2048.jpg",
+            "width": 1366,
+            "height": 2048
+          }
+        ]
+      },
+      {
+        "name": "DSCF8019_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8019_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8019_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8019_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8030_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8030_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8030_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8030_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8037_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8037_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8037_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8037_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8038_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8038_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8038_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8038_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8040_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8040_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8040_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8040_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8045_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8045_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8045_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8045_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8046_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8046_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8046_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8046_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8047_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8047_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8047_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8047_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8048_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8048_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8048_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8048_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8054_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8054_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8054_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8054_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8056_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8056_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8056_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8056_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8057_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8057_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8057_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8057_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8058_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8058_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8058_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8058_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8059_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8059_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8059_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8059_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8062_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8062_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8062_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8062_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8064_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8064_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8064_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8064_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8067_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8067_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8067_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8067_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8069_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8069_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8069_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8069_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8070_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8070_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8070_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8070_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8071_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8071_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8071_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8071_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8074_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8074_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8074_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8074_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8081_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8081_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8081_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8081_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8084_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8084_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8084_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8084_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8085_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8085_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8085_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8085_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8090_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8090_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8090_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8090_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "name": "DSCF8098_resized.jpg",
+        "width": 1366,
+        "height": 2048,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8098_resized-640.webp",
+            "width": 427,
+            "height": 640
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8098_resized-1600.webp",
+            "width": 1067,
+            "height": 1600
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8098_resized-2048.jpg",
+            "width": 1366,
+            "height": 2048
+          }
+        ]
+      },
+      {
+        "name": "DSCF8103_resized.jpg",
+        "width": 2048,
+        "height": 1366,
+        "srcSet": [
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8103_resized-640.webp",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8103_resized-1600.webp",
+            "width": 1600,
+            "height": 1067
+          },
+          {
+            "src": "photos/carmen-suite-bolero-27-02-2026/DSCF8103_resized-2048.jpg",
+            "width": 2048,
+            "height": 1366
+          }
+        ]
+      }
+    ]
+  },
+  {
     "slug": "zarevna-exhibition-1",
     "title": "«Мир моими глазами». Первая выставка картин Зарины. День 1",
     "date": "2025-10-25",
