@@ -1,4 +1,4 @@
-# photo-portfolio
+# phofoleo
 
 Статический сайт с фотоальбомами: Vite + React, публикация на GitHub Pages.
 
