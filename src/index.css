@@ -1,0 +1,272 @@
+:root {
+  --bg: #fff;
+  --text: #1a1a1a;
+  --muted: #6f6f6f;
+  --border: #dcdcdc;
+  --font: 'Jost', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  font: 16px/1.5 var(--font);
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Главная */
+
+.home-header {
+  padding: 64px 16px 32px;
+  text-align: center;
+}
+
+.home-header h1 {
+  margin: 0;
+  font-weight: 400;
+  font-size: clamp(28px, 5vw, 48px);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.home-header p {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.album-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
+  gap: 32px 16px;
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.album-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-decoration: none;
+}
+
+.album-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  margin-bottom: 8px;
+  transition: opacity 0.2s;
+}
+
+.album-card:hover img {
+  opacity: 0.85;
+}
+
+.album-card__date,
+.album-card__count {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.album-card__title {
+  font-size: 18px;
+}
+
+.empty {
+  color: var(--muted);
+}
+
+/* Обложка альбома */
+
+.hero {
+  position: relative;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  background: #222;
+}
+
+.hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.hero__text {
+  position: relative;
+  max-width: 900px;
+  padding: 0 16px;
+}
+
+.hero__text time {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.hero__text h1 {
+  margin: 8px 0 16px;
+  font-weight: 400;
+  font-size: clamp(24px, 4vw, 42px);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.hero__text p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.hero__down {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  translate: -50% 0;
+  padding: 8px 16px;
+  border: 0;
+  background: none;
+  color: #fff;
+  font-size: 24px;
+}
+
+/* Панель над галереей */
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 16px;
+  background: var(--bg);
+}
+
+.toolbar__back {
+  text-decoration: none;
+}
+
+.toolbar__count {
+  margin-right: auto;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.toolbar__btn {
+  padding: 8px 20px;
+  border: 1px solid var(--text);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.toolbar__btn--primary {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.toolbar__btn:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+.scroll-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 20;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--text);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.scroll-top--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 600px) {
+  .scroll-top {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .toolbar__count {
+    display: none;
+  }
+
+  .toolbar__back {
+    margin-right: auto;
+  }
+
+  .toolbar__btn {
+    padding: 8px 12px;
+  }
+}
+
+.gallery {
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.gallery img {
+  cursor: zoom-in;
+}
+
+/* Подвал и 404 */
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 24px;
+  padding: 48px 16px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.not-found {
+  padding: 96px 16px;
+  text-align: center;
+}
+
+.not-found h1 {
+  font-weight: 400;
+}
