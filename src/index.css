@@ -45,8 +45,41 @@ button {
 }
 
 .home-header p {
-  margin: 8px 0 0;
+  margin: 8px 0 12px;
   color: var(--muted);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  font-size: 14px;
+}
+
+.social-links a {
+  color: var(--muted);
+  text-underline-offset: 3px;
+}
+
+.social-links a:hover {
+  color: var(--text);
+}
+
+.social-links--hero {
+  margin-top: 12px;
+}
+
+.social-links--hero a,
+.social-links--hero a:hover {
+  color: #fff;
+}
+
+.social-links--hero a {
+  opacity: 0.85;
+}
+
+.social-links--hero a:hover {
+  opacity: 1;
 }
 
 .album-list {
@@ -55,7 +88,7 @@ button {
   gap: 32px 16px;
   max-width: 1232px;
   margin: 0 auto;
-  padding: 16px;
+  padding: 16px 16px 64px;
 }
 
 .album-card {
@@ -254,12 +287,13 @@ button {
 
 .site-footer {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px 24px;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
   padding: 48px 16px;
   color: var(--muted);
   font-size: 14px;
+  text-align: center;
 }
 
 .not-found {

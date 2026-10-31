@@ -1,15 +1,11 @@
 import { siteConfig } from '../data.ts'
+import { SocialLinks } from './SocialLinks.tsx'
 
 export function SiteFooter() {
-  const links = siteConfig.links.filter((l) => l.href)
   return (
     <footer className="site-footer">
       <span>{siteConfig.author}</span>
-      {links.map((l) => (
-        <a key={l.label} href={l.href} target="_blank" rel="noreferrer">
-          {l.label}
-        </a>
-      ))}
+      <SocialLinks />
     </footer>
   )
 }

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router'
 import { albums, coverOf, formatDate, photoCount, pickSize, siteConfig } from '../data.ts'
-import { SiteFooter } from '../components/SiteFooter.tsx'
+import { SocialLinks } from '../components/SocialLinks.tsx'
 
 export function Home() {
   useEffect(() => {
@@ -12,7 +12,8 @@ export function Home() {
     <>
       <header className="home-header">
         <h1>{siteConfig.title}</h1>
-        <p>{siteConfig.author}</p>
+        <p>{siteConfig.name}</p>
+        <SocialLinks />
       </header>
 
       <main className="album-list">
@@ -30,8 +31,6 @@ export function Home() {
           )
         })}
       </main>
-
-      <SiteFooter />
     </>
   )
 }
