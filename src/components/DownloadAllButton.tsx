@@ -36,7 +36,7 @@ export function DownloadAllButton({ album }: { album: Album }) {
   }
 
   const label =
-    progress !== null ? `Архив: ${progress} / ${album.photos.length}` : failed ? 'Ошибка, повторить' : 'Скачать всё'
+    progress !== null ? `Zipping ${progress} / ${album.photos.length}` : failed ? 'Failed, retry' : 'Download all'
 
   return (
     <button className="toolbar__btn toolbar__btn--primary" onClick={download} disabled={progress !== null}>

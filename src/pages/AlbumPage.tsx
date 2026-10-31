@@ -13,20 +13,8 @@ import 'yet-another-react-lightbox/styles.css'
 import { DownloadAllButton } from '../components/DownloadAllButton.tsx'
 import { ScrollTopButton } from '../components/ScrollTopButton.tsx'
 import { SiteFooter } from '../components/SiteFooter.tsx'
-import { coverOf, findAlbum, formatDate, pickSize, siteConfig } from '../data.ts'
+import { coverOf, findAlbum, formatDate, photoCount, pickSize, siteConfig } from '../data.ts'
 import { NotFound } from './NotFound.tsx'
-
-const LIGHTBOX_LABELS = {
-  Previous: 'Предыдущее',
-  Next: 'Следующее',
-  Close: 'Закрыть',
-  Download: 'Скачать',
-  Share: 'Поделиться',
-  'Zoom in': 'Увеличить',
-  'Zoom out': 'Уменьшить',
-  'Enter Fullscreen': 'Во весь экран',
-  'Exit Fullscreen': 'Выйти из полноэкранного режима',
-}
 
 export function AlbumPage() {
   const { slug } = useParams()
@@ -96,12 +84,12 @@ export function AlbumPage() {
           <time dateTime={album.date}>{formatDate(album.date)}</time>
           <h1>{album.title}</h1>
           <p>
-            {siteConfig.author} · <Link to="/">все альбомы</Link>
+            {siteConfig.author} · <Link to="/">all albums</Link>
           </p>
         </div>
         <button
           className="hero__down"
-          aria-label="К фотографиям"
+          aria-label="Scroll to photos"
           onClick={() => galleryRef.current?.scrollIntoView({ behavior: 'smooth' })}
         >
           ↓
@@ -110,15 +98,15 @@ export function AlbumPage() {
 
       <div className="toolbar" ref={galleryRef}>
         <Link to="/" className="toolbar__back">
-          ← Все альбомы
+          ← All albums
         </Link>
-        <span className="toolbar__count">{album.photos.length} фото</span>
+        <span className="toolbar__count">{photoCount(album.photos.length)}</span>
         <button className="toolbar__btn" onClick={shareAlbum}>
-          {copied ? 'Ссылка скопирована' : 'Поделиться'}
+          {copied ? 'Link copied' : 'Share'}
         </button>
         {album.archiveUrl && (
           <a className="toolbar__btn" href={album.archiveUrl}>
-            Оригиналы
+            Originals
           </a>
         )}
         <DownloadAllButton album={album} />
@@ -141,7 +129,6 @@ export function AlbumPage() {
         close={() => setOpen(-1)}
         on={{ view: ({ index }) => openIndex >= 0 && index !== openIndex && setOpen(index) }}
         plugins={[Counter, Download, Fullscreen, Share, Zoom]}
-        labels={LIGHTBOX_LABELS}
         controller={{ closeOnBackdropClick: true }}
       />
 

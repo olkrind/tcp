@@ -35,8 +35,10 @@ export const findAlbum = (slug: string | undefined) => albums.find((a) => a.slug
 
 export const coverOf = (album: Album) => album.photos.find((p) => p.name === album.cover) ?? album.photos[0]
 
-export const formatDate = (iso: string) =>
-  new Date(iso).toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' })
+// ДД.ММ.ГГГГ независимо от языка браузера.
+export const formatDate = (iso: string) => iso.split('-').reverse().join('.')
+
+export const photoCount = (n: number) => `${n} ${n === 1 ? 'photo' : 'photos'}`
 
 // Ближайший размер не меньше нужной ширины.
 export const pickSize = (photo: PhotoEntry, minWidth: number) =>

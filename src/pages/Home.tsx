@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router'
-import { albums, coverOf, formatDate, pickSize, siteConfig } from '../data.ts'
+import { albums, coverOf, formatDate, photoCount, pickSize, siteConfig } from '../data.ts'
 import { SiteFooter } from '../components/SiteFooter.tsx'
 
 export function Home() {
@@ -16,7 +16,7 @@ export function Home() {
       </header>
 
       <main className="album-list">
-        {albums.length === 0 && <p className="empty">Альбомов пока нет — см. README, раздел «Новый альбом».</p>}
+        {albums.length === 0 && <p className="empty">No albums yet.</p>}
         {albums.map((album) => {
           const cover = coverOf(album)
           const img = cover && pickSize(cover, 1000)
@@ -25,7 +25,7 @@ export function Home() {
               {img && <img src={img.src} width={img.width} height={img.height} alt="" loading="lazy" />}
               <span className="album-card__date">{formatDate(album.date)}</span>
               <span className="album-card__title">{album.title}</span>
-              <span className="album-card__count">{album.photos.length} фото</span>
+              <span className="album-card__count">{photoCount(album.photos.length)}</span>
             </Link>
           )
         })}

@@ -13,7 +13,7 @@ export function ScrollTopButton() {
   return (
     <button
       className={`scroll-top${visible ? ' scroll-top--visible' : ''}`}
-      aria-label="Наверх"
+      aria-label="Back to top"
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
     >
       ↑
