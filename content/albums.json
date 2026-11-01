@@ -7,6 +7,24 @@
     "archiveUrl": null
   },
   {
+    "slug": "personal-exhibition-25-10-2025",
+    "title": "Выставка «Мир моими глазами» Зарина Шайхетдинова",
+    "date": "2025-10-25",
+    "cover": "cover.jpg",
+    "coverPosition": "46% 23%",
+    "coverDim": 0,
+    "archiveUrl": null,
+    "downloadable": false,
+    "lightbox": "light",
+    "spacing": 20,
+    "sections": [
+      { "slug": "vvedenie", "title": "Введение", "dir": "01 Введение" },
+      { "slug": "gorodskie-zhiteli", "title": "Городские жители", "dir": "02 Городские жители" },
+      { "slug": "telo", "title": "Тело", "dir": "03 Тело" },
+      { "slug": "bytovye-motivy", "title": "Бытовые мотивы", "dir": "04 Бытовые мотивы" }
+    ]
+  },
+  {
     "slug": "zarevna-exhibition-1",
     "title": "«Мир моими глазами». Первая выставка картин Зарины. День 1",
     "date": "2025-10-25",

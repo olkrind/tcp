@@ -1241,6 +1241,1122 @@
     ]
   },
   {
+    "slug": "personal-exhibition-25-10-2025",
+    "title": "Выставка «Мир моими глазами» Зарина Шайхетдинова",
+    "date": "2025-10-25",
+    "cover": "cover.jpg",
+    "coverPosition": "46% 23%",
+    "coverDim": 0,
+    "archiveUrl": null,
+    "downloadable": false,
+    "lightbox": "light",
+    "spacing": 20,
+    "sections": [
+      {
+        "slug": "vvedenie",
+        "title": "Введение",
+        "dir": "01 Введение"
+      },
+      {
+        "slug": "gorodskie-zhiteli",
+        "title": "Городские жители",
+        "dir": "02 Городские жители"
+      },
+      {
+        "slug": "telo",
+        "title": "Тело",
+        "dir": "03 Тело"
+      },
+      {
+        "slug": "bytovye-motivy",
+        "title": "Бытовые мотивы",
+        "dir": "04 Бытовые мотивы"
+      }
+    ],
+    "coverPhoto": {
+      "name": "cover.jpg",
+      "width": 1536,
+      "height": 2048,
+      "srcSet": [
+        {
+          "src": "photos/personal-exhibition-25-10-2025/cover-640.webp",
+          "width": 480,
+          "height": 640
+        },
+        {
+          "src": "photos/personal-exhibition-25-10-2025/cover-1600.webp",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "src": "photos/personal-exhibition-25-10-2025/cover-2048.jpg",
+          "width": 1536,
+          "height": 2048
+        }
+      ]
+    },
+    "photos": [
+      {
+        "name": "Введение 1.jpg",
+        "width": 2048,
+        "height": 2048,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-1-640.webp",
+            "width": 640,
+            "height": 640
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-1-1600.webp",
+            "width": 1600,
+            "height": 1600
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-1-2048.jpg",
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "section": "vvedenie"
+      },
+      {
+        "name": "Введение 2.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-2-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-2-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-2-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "vvedenie"
+      },
+      {
+        "name": "Введение 3.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-3-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-3-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-3-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "vvedenie"
+      },
+      {
+        "name": "Введение 4.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-4-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-4-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-4-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "vvedenie"
+      },
+      {
+        "name": "Введение 5.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-5-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-5-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-5-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "vvedenie"
+      },
+      {
+        "name": "Введение 6.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-6-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-6-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-6-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "vvedenie"
+      },
+      {
+        "name": "Введение 7.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-7-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-7-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-7-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "vvedenie"
+      },
+      {
+        "name": "Введение 8.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-8-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-8-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/vvedenie/Vvedenie-8-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "vvedenie"
+      },
+      {
+        "name": "Городские жители 0.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-0-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-0-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-0-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "gorodskie-zhiteli"
+      },
+      {
+        "name": "Городские жители 1.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-1-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-1-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-1-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "gorodskie-zhiteli"
+      },
+      {
+        "name": "Городские жители 2.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-2-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-2-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-2-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "gorodskie-zhiteli"
+      },
+      {
+        "name": "Городские жители 3.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-3-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-3-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-3-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "gorodskie-zhiteli"
+      },
+      {
+        "name": "Городские жители 4.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-4-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-4-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-4-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "gorodskie-zhiteli"
+      },
+      {
+        "name": "Городские жители 5.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-5-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-5-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-5-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "gorodskie-zhiteli"
+      },
+      {
+        "name": "Городские жители 6.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-6-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-6-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-6-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "gorodskie-zhiteli"
+      },
+      {
+        "name": "Городские жители 7.jpg",
+        "width": 2048,
+        "height": 1025,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-7-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-7-1600.webp",
+            "width": 1600,
+            "height": 801
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-7-2048.jpg",
+            "width": 2048,
+            "height": 1025
+          }
+        ],
+        "section": "gorodskie-zhiteli"
+      },
+      {
+        "name": "Городские жители 8.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-8-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-8-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/gorodskie-zhiteli/Gorodskie-zhiteli-8-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "gorodskie-zhiteli"
+      },
+      {
+        "name": "Тело 0.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-0-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-0-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-0-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "telo"
+      },
+      {
+        "name": "Тело 1.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-1-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-1-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-1-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "telo"
+      },
+      {
+        "name": "Тело 2.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-2-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-2-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-2-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "telo"
+      },
+      {
+        "name": "Тело 3.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-3-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-3-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-3-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "telo"
+      },
+      {
+        "name": "Тело 4.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-4-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-4-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-4-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "telo"
+      },
+      {
+        "name": "Тело 5.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-5-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-5-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-5-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "telo"
+      },
+      {
+        "name": "Тело 6.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-6-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-6-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-6-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "telo"
+      },
+      {
+        "name": "Тело 7.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-7-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-7-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-7-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "telo"
+      },
+      {
+        "name": "Тело 8.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-8-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-8-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-8-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "telo"
+      },
+      {
+        "name": "Тело 9.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-9-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-9-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-9-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "telo"
+      },
+      {
+        "name": "Тело 10.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-10-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-10-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-10-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "telo"
+      },
+      {
+        "name": "Тело 11.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-11-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-11-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/telo/Telo-11-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "telo"
+      },
+      {
+        "name": "Бытовые мотивы 0.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-0-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-0-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-0-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "bytovye-motivy"
+      },
+      {
+        "name": "Бытовые мотивы 1.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-1-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-1-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-1-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "bytovye-motivy"
+      },
+      {
+        "name": "Бытовые мотивы 2.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-2-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-2-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-2-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "bytovye-motivy"
+      },
+      {
+        "name": "Бытовые мотивы 3.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-3-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-3-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-3-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "bytovye-motivy"
+      },
+      {
+        "name": "Бытовые мотивы 4.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-4-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-4-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-4-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "bytovye-motivy"
+      },
+      {
+        "name": "Бытовые мотивы 5.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-5-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-5-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-5-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "bytovye-motivy"
+      },
+      {
+        "name": "Бытовые мотивы 6.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-6-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-6-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-6-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "bytovye-motivy"
+      },
+      {
+        "name": "Бытовые мотивы 7.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-7-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-7-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-7-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "bytovye-motivy"
+      },
+      {
+        "name": "Бытовые мотивы 8.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-8-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-8-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-8-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "bytovye-motivy"
+      },
+      {
+        "name": "Бытовые мотивы 9.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-9-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-9-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-9-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "bytovye-motivy"
+      },
+      {
+        "name": "Бытовые мотивы 10.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-10-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-10-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-10-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "bytovye-motivy"
+      },
+      {
+        "name": "Бытовые мотивы 11.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-11-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-11-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-11-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "bytovye-motivy"
+      },
+      {
+        "name": "Бытовые мотивы 12.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-12-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-12-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-12-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "bytovye-motivy"
+      },
+      {
+        "name": "Бытовые мотивы 13.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-13-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-13-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-13-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "bytovye-motivy"
+      },
+      {
+        "name": "Бытовые мотивы 14.jpg",
+        "width": 2048,
+        "height": 1016,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-14-640.webp",
+            "width": 640,
+            "height": 317
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-14-1600.webp",
+            "width": 1600,
+            "height": 793
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-14-2048.jpg",
+            "width": 2048,
+            "height": 1016
+          }
+        ],
+        "section": "bytovye-motivy"
+      },
+      {
+        "name": "Бытовые мотивы 15.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-15-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-15-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-15-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "bytovye-motivy"
+      },
+      {
+        "name": "Бытовые мотивы 16.jpg",
+        "width": 2048,
+        "height": 1024,
+        "srcSet": [
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-16-640.webp",
+            "width": 640,
+            "height": 320
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-16-1600.webp",
+            "width": 1600,
+            "height": 800
+          },
+          {
+            "src": "photos/personal-exhibition-25-10-2025/bytovye-motivy/Bytovye-motivy-16-2048.jpg",
+            "width": 2048,
+            "height": 1024
+          }
+        ],
+        "section": "bytovye-motivy"
+      }
+    ]
+  },
+  {
     "slug": "zarevna-exhibition-1",
     "title": "«Мир моими глазами». Первая выставка картин Зарины. День 1",
     "date": "2025-10-25",
