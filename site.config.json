@@ -1,8 +1,9 @@
 {
-  "siteUrl": "https://olkrind.github.io/phofoleo",
+  "siteUrl": "https://olkrind.github.io/tcp",
   "title": "The Chill Photographer",
   "name": "Oleg Krivenchuk",
   "author": "The Chill Photographer Oleg Krivenchuk",
+  "phone": "+381 65 319 8585",
   "links": [
     { "label": "Telegram", "href": "https://t.me/olkrind" },
     { "label": "Instagram", "href": "https://www.instagram.com/olkrind" }

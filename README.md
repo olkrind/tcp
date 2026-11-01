@@ -1,6 +1,17 @@
-# phofoleo
+# tcp — The Chill Photographer
 
-Статический сайт с фотоальбомами: Vite + React, публикация на GitHub Pages.
+Визитка и фотоальбомы: Vite + React, публикация на GitHub Pages.
+
+## Страницы
+
+| Адрес | Что там |
+|---|---|
+| `/` | визитка: фото, имя, телефон, Albums, Telegram, Instagram, Save contact |
+| `/albums/` | список альбомов |
+| `/albums/<slug>/` | альбом |
+| `/contact.vcf` | файл контакта, собирается при `npm run build` из `site.config.json` и `avatar-400.jpg` |
+
+Фото профиля — `photos-src/avatar.jpg` (вне git); `npm run photos` делает из него `public/avatar-400.jpg` и `public/avatar-1200.jpg`.
 
 ## Структура
 
@@ -35,6 +46,6 @@ npm run preview  # просмотр собранной версии
 
 ## Публикация на GitHub Pages
 
-- Адрес сайта задаётся одной строкой — `siteUrl` в `site.config.json`. Из его пути берётся `base` для Vite и роутера, из него же строятся абсолютные ссылки для превью в мессенджерах. Сейчас: `https://olkrind.github.io/phofoleo` (репозиторий `olkrind/phofoleo`). При переименовании репозитория или подключении своего домена меняется эта строка и адрес в `git remote set-url origin …`. Старые адреса `*.github.io/<прежнее имя>/` GitHub не перенаправляет — они отдают 404.
+- Адрес сайта задаётся одной строкой — `siteUrl` в `site.config.json`. Из его пути берётся `base` для Vite и роутера, из него же строятся абсолютные ссылки для превью в мессенджерах. Сейчас: `https://olkrind.github.io/tcp` (репозиторий `olkrind/tcp`). При переименовании репозитория или подключении своего домена меняется эта строка и адрес в `git remote set-url origin …`. Старые адреса `*.github.io/<прежнее имя>/` GitHub не перенаправляет — они отдают 404.
 - Settings → Pages → Build and deployment → Source: **GitHub Actions**.
 - Лимиты: сайт до 1 ГБ, файл до 100 МБ, трафик около 100 ГБ в месяц.
