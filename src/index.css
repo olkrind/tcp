@@ -168,23 +168,6 @@ button {
   color: var(--text);
 }
 
-.social-links--hero {
-  margin-top: 12px;
-}
-
-.social-links--hero a,
-.social-links--hero a:hover {
-  color: #fff;
-}
-
-.social-links--hero a {
-  opacity: 0.85;
-}
-
-.social-links--hero a:hover {
-  opacity: 1;
-}
-
 .album-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
@@ -228,14 +211,16 @@ button {
   color: var(--muted);
 }
 
-/* Обложка альбома */
+/* Обложка альбома — расположение, затемнение и шрифты по замеру обложек образца */
 
 .hero {
   position: relative;
   height: 100svh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  padding: 15.6svh 0;
   overflow: hidden;
   color: #fff;
   text-align: center;
@@ -248,31 +233,34 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.6);
+  filter: brightness(0.65);
 }
 
 .hero__text {
   position: relative;
   max-width: 900px;
+  margin: 48px 0;
   padding: 0 16px;
+  font-weight: 300;
 }
 
 .hero__text time {
-  font-size: 14px;
-  opacity: 0.85;
+  display: block;
+  margin-bottom: 24px;
+  font-size: 15px;
 }
 
 .hero__text h1 {
-  margin: 8px 0 16px;
-  font-weight: 400;
-  font-size: clamp(24px, 4vw, 42px);
-  line-height: 1.2;
+  margin: 0 0 24px;
+  font-weight: 300;
+  font-size: clamp(24px, 4vw, 40px);
+  line-height: 1.1;
   text-transform: uppercase;
 }
 
 .hero__text p {
   margin: 0;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .hero__down {

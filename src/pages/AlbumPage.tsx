@@ -13,7 +13,6 @@ import 'yet-another-react-lightbox/styles.css'
 import { DownloadAllButton } from '../components/DownloadAllButton.tsx'
 import { ScrollTopButton } from '../components/ScrollTopButton.tsx'
 import { SiteFooter } from '../components/SiteFooter.tsx'
-import { SocialLinks } from '../components/SocialLinks.tsx'
 import { coverOf, findAlbum, formatDate, photoCount, pickSize, siteConfig } from '../data.ts'
 import { NotFound } from './NotFound.tsx'
 
@@ -87,7 +86,6 @@ export function AlbumPage() {
           <p>
             {siteConfig.title} · <Link to="/">{siteConfig.name}</Link> · <Link to="/albums/">All albums</Link>
           </p>
-          <SocialLinks className="social-links--hero" />
         </div>
         <button
           className="hero__down"
