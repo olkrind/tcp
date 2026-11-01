@@ -1,4 +1,4 @@
-// Готовит фото для сайта: photos-src/<slug>/* → public/photos/<slug>/ и src/generated/albums.json.
+// Готовит фото для сайта: photos-src/<slug>/* (или photos-src/<slug>/<раздел>/*) → public/photos/… и src/generated/albums.json.
 // Запуск: npm run photos. Уже обработанные файлы пропускаются, если исходник не новее.
 import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises'
 import path from 'node:path'
@@ -18,15 +18,30 @@ const SIZES = [
 ]
 const INPUT_EXT = new Set(['.jpg', '.jpeg', '.png', '.webp', '.tif', '.tiff'])
 
+// Имя файла для URL: кириллица транслитерируется, пробелы и прочие символы — в «-».
+// Пробел в имени ломает srcset: браузер делит его значение по пробелам.
+const TRANSLIT = Object.fromEntries(
+  'а:a б:b в:v г:g д:d е:e ё:e ж:zh з:z и:i й:y к:k л:l м:m н:n о:o п:p р:r с:s т:t у:u ф:f х:h ц:ts ч:ch ш:sh щ:sch ъ: ы:y ь: э:e ю:yu я:ya'
+    .split(' ')
+    .map((p) => p.split(':')),
+)
+const urlSafe = (s) =>
+  [...s]
+    .map((c) => {
+      const t = TRANSLIT[c.toLowerCase()]
+      return t === undefined ? c : c === c.toLowerCase() ? t : t.charAt(0).toUpperCase() + t.slice(1)
+    })
+    .join('')
+    .replace(/[^A-Za-z0-9_.-]+/g, '-')
+
 const albums = JSON.parse(await readFile(path.join(root, 'content', 'albums.json'), 'utf8'))
 const previous = await readJson(manifestPath, [])
 
 const manifest = []
 for (const album of albums) {
   const srcDir = path.join(srcRoot, album.slug)
-  const files = await listImages(srcDir)
 
-  if (files === null) {
+  if (!(await stat(srcDir).catch(() => null))) {
     // Исходников нет (например, на другом компьютере) — берём прошлый результат.
     const old = previous.find((a) => a.slug === album.slug)
     if (old) manifest.push({ ...old, ...album, cover: old.cover })
@@ -34,18 +49,32 @@ for (const album of albums) {
     continue
   }
 
-  const outDir = path.join(outRoot, album.slug)
-  await mkdir(outDir, { recursive: true })
+  // Альбом с разделами: фото раздела — в photos-src/<slug>/<section.dir>/, копии — в public/photos/<slug>/<section.slug>/.
+  const parts = album.sections
+    ? album.sections.map((s) => ({ section: s.slug, srcDir: path.join(srcDir, s.dir), urlDir: `${album.slug}/${s.slug}` }))
+    : [{ section: undefined, srcDir, urlDir: album.slug }]
 
   const photos = []
-  for (const [i, file] of files.entries()) {
-    photos.push(await processPhoto(path.join(srcDir, file), outDir, album.slug))
-    if (process.stdout.isTTY) process.stdout.write(`\r${album.slug}: ${i + 1}/${files.length}`)
+  for (const part of parts) {
+    const files = (await listImages(part.srcDir)) ?? []
+    await mkdir(path.join(outRoot, part.urlDir), { recursive: true })
+    for (const [i, file] of files.entries()) {
+      const photo = await processPhoto(path.join(part.srcDir, file), part.urlDir)
+      photos.push(part.section ? { ...photo, section: part.section } : photo)
+      if (process.stdout.isTTY) process.stdout.write(`\r${part.urlDir}: ${i + 1}/${files.length}`)
+    }
+    console.log(`${process.stdout.isTTY ? '\r' : ''}${part.urlDir}: ${files.length} фото`)
   }
-  console.log(`${process.stdout.isTTY ? '\r' : ''}${album.slug}: ${files.length} фото`)
 
-  const cover = photos.find((p) => p.name === album.cover) ?? photos[0]
-  manifest.push({ ...album, cover: cover?.name ?? null, photos })
+  // Обложка — фото альбома по имени или отдельный файл в photos-src/<slug>/, которого нет среди фото альбома.
+  let cover = photos.find((p) => p.name === album.cover)
+  let coverPhoto
+  if (!cover && album.cover && (await stat(path.join(srcDir, album.cover)).catch(() => null))) {
+    coverPhoto = await processPhoto(path.join(srcDir, album.cover), album.slug)
+    cover = coverPhoto
+  }
+  cover ??= photos[0]
+  manifest.push({ ...album, cover: cover?.name ?? null, ...(coverPhoto && { coverPhoto }), photos })
 }
 
 await mkdir(path.dirname(manifestPath), { recursive: true })
@@ -88,9 +117,10 @@ if (await stat(avatarSrc).catch(() => null)) {
   console.log('Значок вкладки: public/favicon-32.png, public/favicon-192.png, public/apple-touch-icon.png')
 }
 
-async function processPhoto(srcFile, outDir, slug) {
+async function processPhoto(srcFile, urlDir) {
+  const outDir = path.join(outRoot, urlDir)
   const name = path.basename(srcFile)
-  const base = path.parse(name).name
+  const base = urlSafe(path.parse(name).name)
   const srcMtime = (await stat(srcFile)).mtimeMs
 
   // rotate() без аргументов применяет EXIF-ориентацию; метаданные (включая GPS) в результат не попадают.
@@ -114,7 +144,7 @@ async function processPhoto(srcFile, outDir, slug) {
       await image.clone().resize({ width, height }).toFormat(size.format, size.options).toFile(outFile)
     }
     // Путь без ведущего «/»: префикс base добавляется при сборке (src/data.ts, scripts/prerender.mjs).
-    srcSet.push({ src: `photos/${slug}/${outName}`, width, height })
+    srcSet.push({ src: `photos/${urlDir}/${outName}`, width, height })
   }
 
   const largest = srcSet.at(-1)

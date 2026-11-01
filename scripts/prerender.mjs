@@ -75,18 +75,25 @@ const vcard = [
 await writeFile(path.join(dist, 'contact.vcf'), vcard + '\r\n')
 
 for (const album of albums) {
-  const cover = album.photos.find((p) => p.name === album.cover)
-  const dir = path.join(dist, 'albums', album.slug)
-  await mkdir(dir, { recursive: true })
-  await writeFile(
-    path.join(dir, 'index.html'),
-    render({
-      title: album.title,
-      description: site.author,
-      url: `${site.siteUrl}/albums/${album.slug}/`,
-      image: cover && `${site.siteUrl}/${cover.srcSet.at(-1).src}`,
-    }),
-  )
+  const cover = album.coverPhoto ?? album.photos.find((p) => p.name === album.cover)
+  const image = cover && `${site.siteUrl}/${cover.srcSet.at(-1).src}`
+  // Первый раздел открывается по адресу альбома, остальные — /albums/<slug>/<section>/.
+  const pages = [{ sub: '', title: album.title }]
+  for (const s of album.sections?.slice(1) ?? []) pages.push({ sub: `${s.slug}/`, title: `${s.title}. ${album.title}` })
+
+  for (const page of pages) {
+    const dir = path.join(dist, 'albums', album.slug, page.sub)
+    await mkdir(dir, { recursive: true })
+    await writeFile(
+      path.join(dir, 'index.html'),
+      render({
+        title: page.title,
+        description: site.author,
+        url: `${site.siteUrl}/albums/${album.slug}/${page.sub}`,
+        image,
+      }),
+    )
+  }
 }
 
 await writeFile(path.join(dist, '404.html'), template)

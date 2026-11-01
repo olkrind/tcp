@@ -14,6 +14,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/" element={<CardPage />} />
         <Route path="/albums" element={<Home />} />
         <Route path="/albums/:slug" element={<AlbumPage />} />
+        <Route path="/albums/:slug/:section" element={<AlbumPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
