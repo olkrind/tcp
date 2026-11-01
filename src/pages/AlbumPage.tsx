@@ -85,7 +85,7 @@ export function AlbumPage() {
           <time dateTime={album.date}>{formatDate(album.date)}</time>
           <h1>{album.title}</h1>
           <p>
-            {siteConfig.title} · {siteConfig.name} · <Link to="/">All albums</Link>
+            {siteConfig.title} · <Link to="/">{siteConfig.name}</Link> · <Link to="/albums/">All albums</Link>
           </p>
           <SocialLinks className="social-links--hero" />
         </div>
@@ -99,7 +99,7 @@ export function AlbumPage() {
       </section>
 
       <div className="toolbar" ref={galleryRef}>
-        <Link to="/" className="toolbar__back">
+        <Link to="/albums/" className="toolbar__back">
           ← All albums
         </Link>
         <span className="toolbar__count">{photoCount(album.photos.length)}</span>

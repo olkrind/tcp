@@ -1,4 +1,5 @@
-// После vite build: отдельный index.html на каждый альбом с собственными <title> и og-тегами.
+// После vite build: index.html визитки, списка альбомов и каждого альбома с собственными <title> и og-тегами;
+// contact.vcf для визитки.
 // Telegram и другие мессенджеры не выполняют JS и берут превью ссылки только из HTML.
 // 404.html — копия index.html: GitHub Pages отдаёт её на неизвестные пути, дальше маршрут разбирает React.
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
@@ -26,16 +27,52 @@ function render({ title, description, url, image }) {
   return template.replace(/<title>.*?<\/title>/s, tags.filter(Boolean).join('\n    '))
 }
 
-const firstCover = albums[0]?.photos.find((p) => p.name === albums[0].cover)
+const avatarPath = path.join(dist, 'avatar-400.jpg')
+const avatar = await readFile(avatarPath).catch(() => null)
+
+// Корень сайта — визитка.
 await writeFile(
   path.join(dist, 'index.html'),
   render({
-    title: site.title,
-    description: site.author,
+    title: site.author,
+    description: [site.phone, ...site.links.filter((l) => l.href).map((l) => l.label)].join(' · '),
     url: `${site.siteUrl}/`,
+    image: avatar && `${site.siteUrl}/avatar-1200.jpg`,
+  }),
+)
+
+const firstCover = albums[0]?.photos.find((p) => p.name === albums[0].cover)
+await mkdir(path.join(dist, 'albums'), { recursive: true })
+await writeFile(
+  path.join(dist, 'albums', 'index.html'),
+  render({
+    title: `Albums · ${site.title}`,
+    description: site.author,
+    url: `${site.siteUrl}/albums/`,
     image: firstCover && `${site.siteUrl}/${firstCover.srcSet.at(-1).src}`,
   }),
 )
+
+// Файл контакта для кнопки «Save contact». vCard 3.0: строки длиннее 75 символов переносятся с пробелом в начале,
+// иначе iOS и Android обрезают фото и ссылки.
+const fold = (line) => line.match(/.{1,74}/g).join('\r\n ')
+const [first, ...rest] = site.name.split(' ')
+const vcard = [
+  'BEGIN:VCARD',
+  'VERSION:3.0',
+  `N:${rest.join(' ')};${first};;;`,
+  `FN:${site.name}`,
+  `TITLE:${site.title}`,
+  `TEL;TYPE=CELL:${site.phone.replace(/\s/g, '')}`,
+  `URL:${site.siteUrl}/`,
+  ...site.links.filter((l) => l.href).map((l) => `X-SOCIALPROFILE;TYPE=${l.label.toLowerCase()}:${l.href}`),
+  avatar && `PHOTO;ENCODING=b;TYPE=JPEG:${avatar.toString('base64')}`,
+  'END:VCARD',
+]
+  .filter(Boolean)
+  .map(fold)
+  .join('\r\n')
+await writeFile(path.join(dist, 'contact.vcf'), vcard + '\r\n')
 
 for (const album of albums) {
   const cover = album.photos.find((p) => p.name === album.cover)

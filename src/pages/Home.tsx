@@ -5,14 +5,16 @@ import { SocialLinks } from '../components/SocialLinks.tsx'
 
 export function Home() {
   useEffect(() => {
-    document.title = siteConfig.title
+    document.title = `Albums · ${siteConfig.title}`
   }, [])
 
   return (
     <>
       <header className="home-header">
         <h1>{siteConfig.title}</h1>
-        <p>{siteConfig.name}</p>
+        <p>
+          <Link to="/">{siteConfig.name}</Link>
+        </p>
         <SocialLinks />
       </header>
 

@@ -52,6 +52,21 @@ await mkdir(path.dirname(manifestPath), { recursive: true })
 await writeFile(manifestPath, JSON.stringify(manifest, null, 2) + '\n')
 console.log(`Готово: ${manifest.length} альбом(ов), манифест — src/generated/albums.json`)
 
+// Фото профиля для визитки: photos-src/avatar.jpg → квадрат 400 px (кружок на странице, файл контакта)
+// и 1200 px (превью ссылки). Цветовой профиль переводится в sRGB, иначе оттенки Display P3 в браузерах расходятся.
+const avatarSrc = path.join(srcRoot, 'avatar.jpg')
+if (await stat(avatarSrc).catch(() => null)) {
+  for (const size of [400, 1200]) {
+    await sharp(avatarSrc)
+      .rotate()
+      .resize(size, size, { fit: 'cover' })
+      .toColourspace('srgb')
+      .jpeg({ quality: 90, mozjpeg: true })
+      .toFile(path.join(root, 'public', `avatar-${size}.jpg`))
+  }
+  console.log('Фото профиля: public/avatar-400.jpg, public/avatar-1200.jpg')
+}
+
 async function processPhoto(srcFile, outDir, slug) {
   const name = path.basename(srcFile)
   const base = path.parse(name).name
