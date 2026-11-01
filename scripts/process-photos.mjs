@@ -65,6 +65,27 @@ if (await stat(avatarSrc).catch(() => null)) {
       .toFile(path.join(root, 'public', `avatar-${size}.jpg`))
   }
   console.log('Фото профиля: public/avatar-400.jpg, public/avatar-1200.jpg')
+
+  // Значок вкладки: квадрат со скруглением 22% стороны, как у иконок iOS. apple-touch-icon — квадрат без прозрачности:
+  // iOS сам скругляет углы, а прозрачные пиксели заливает чёрным.
+  const rounded = (n) =>
+    Buffer.from(`<svg width="${n}" height="${n}"><rect width="${n}" height="${n}" rx="${n * 0.2237}"/></svg>`)
+  for (const size of [32, 192]) {
+    await sharp(avatarSrc)
+      .rotate()
+      .resize(size, size, { fit: 'cover' })
+      .toColourspace('srgb')
+      .composite([{ input: rounded(size), blend: 'dest-in' }])
+      .png()
+      .toFile(path.join(root, 'public', `favicon-${size}.png`))
+  }
+  await sharp(avatarSrc)
+    .rotate()
+    .resize(180, 180, { fit: 'cover' })
+    .toColourspace('srgb')
+    .png()
+    .toFile(path.join(root, 'public', 'apple-touch-icon.png'))
+  console.log('Значок вкладки: public/favicon-32.png, public/favicon-192.png, public/apple-touch-icon.png')
 }
 
 async function processPhoto(srcFile, outDir, slug) {

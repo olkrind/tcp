@@ -11,7 +11,7 @@
 | `/albums/<slug>/` | альбом |
 | `/contact.vcf` | файл контакта, собирается при `npm run build` из `site.config.json` и `avatar-400.jpg` |
 
-Фото профиля — `photos-src/avatar.jpg` (вне git); `npm run photos` делает из него `public/avatar-400.jpg` и `public/avatar-1200.jpg`.
+Фото профиля — `photos-src/avatar.jpg` (вне git); `npm run photos` делает из него `public/avatar-400.jpg`, `public/avatar-1200.jpg` и значок вкладки: `favicon-32.png`, `favicon-192.png` (скругление углов как у иконок iOS), `apple-touch-icon.png` (квадрат, для иконки на экране «Домой» в iOS).
 
 ## Структура
 
