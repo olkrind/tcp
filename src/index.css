@@ -75,7 +75,7 @@ button {
 .card__buttons {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   width: 100%;
   max-width: 300px;
   margin-top: 40px;
