@@ -81,6 +81,9 @@ export const photoCount = (entries: PhotoEntry[]) => {
   return parts.join(' · ')
 }
 
+// Имя исходника с камеры, как в подписи образца: DSCF4523_resized.jpg → DSCF4523.JPG. Остальные имена — как есть.
+export const originalName = (name: string) => name.replace(/_resized\.jpe?g$/i, '.JPG')
+
 // Ближайший размер не меньше нужной ширины.
 export const pickSize = (photo: PhotoEntry, minWidth: number) =>
   photo.srcSet.find((s) => s.width >= minWidth) ?? photo.srcSet[photo.srcSet.length - 1]

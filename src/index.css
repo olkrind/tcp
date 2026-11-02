@@ -459,6 +459,12 @@ button {
   pointer-events: none;
 }
 
+.yarl__slide_description {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 20px;
+}
+
 /* Альбом без скачивания: фото нельзя перетащить на рабочий стол, на iOS долгое нажатие не открывает «Сохранить» */
 .no-save img {
   -webkit-user-drag: none;

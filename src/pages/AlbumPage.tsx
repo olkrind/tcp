@@ -3,6 +3,8 @@ import { MasonryPhotoAlbum, type Photo } from 'react-photo-album'
 import 'react-photo-album/masonry.css'
 import { Link, useParams, useSearchParams } from 'react-router'
 import Lightbox, { type Slide } from 'yet-another-react-lightbox'
+import Captions from 'yet-another-react-lightbox/plugins/captions'
+import 'yet-another-react-lightbox/plugins/captions.css'
 import Counter from 'yet-another-react-lightbox/plugins/counter'
 import 'yet-another-react-lightbox/plugins/counter.css'
 import Download from 'yet-another-react-lightbox/plugins/download'
@@ -14,12 +16,27 @@ import 'yet-another-react-lightbox/styles.css'
 import { DownloadAllButton } from '../components/DownloadAllButton.tsx'
 import { ScrollTopButton } from '../components/ScrollTopButton.tsx'
 import { SiteFooter } from '../components/SiteFooter.tsx'
-import { coverOf, findAlbum, formatDate, photoCount, pickSize, sectionPath, siteConfig } from '../data.ts'
+import { coverOf, findAlbum, formatDate, originalName, photoCount, pickSize, sectionPath, siteConfig } from '../data.ts'
 import { NotFound } from './NotFound.tsx'
 
+// Подпись с именем файла — по образцу: 13 px, по центру полосы 44 px под кадром.
+const CAPTION = {
+  '--yarl__slide_captions_container_background': 'transparent',
+  '--yarl__slide_captions_container_padding': '10px 10px 14px',
+  '--yarl__slide_description_color': 'rgba(255, 255, 255, 0.75)',
+}
+
+// Полосы 44 px над кадром (кнопки) и под ним (подпись), как на образце.
+const SLIDE = { padding: '44px 16px' }
+
+const DARK_LIGHTBOX = { root: CAPTION, slide: SLIDE }
+
 const LIGHT_LIGHTBOX = {
+  slide: SLIDE,
   container: { backgroundColor: '#fff' },
   root: {
+    ...CAPTION,
+    '--yarl__slide_description_color': 'rgba(0, 0, 0, 0.75)',
     '--yarl__color_backdrop': '#fff',
     '--yarl__color_button': 'rgba(30, 30, 30, 0.8)',
     '--yarl__color_button_active': '#1e1e1e',
@@ -60,6 +77,7 @@ export function AlbumPage() {
       visible.map((p): Slide => {
         const full = p.srcSet[p.srcSet.length - 1]
         const share = { url: `${pageUrl}?photo=${encodeURIComponent(p.name)}` }
+        const description = originalName(p.name)
         // Как на образце: запуск сразу, без звука, с кнопками плеера, без повтора.
         if (p.video)
           return {
@@ -75,6 +93,7 @@ export function AlbumPage() {
             controlsList: 'nodownload',
             download: downloadable && { url: p.video.src, filename: p.name.replace(/\.\w+$/, '.mp4') },
             share,
+            description,
           }
         return {
           src: full.src,
@@ -83,6 +102,7 @@ export function AlbumPage() {
           srcSet: p.srcSet,
           download: downloadable && { url: full.src, filename: p.name.replace(/\.\w+$/, '.jpg') },
           share,
+          description,
         }
       }),
     [visible, pageUrl, downloadable],
@@ -218,10 +238,14 @@ export function AlbumPage() {
         slides={slides}
         close={() => setOpen(-1)}
         on={{ view: ({ index }) => openIndex >= 0 && index !== openIndex && setOpen(index) }}
-        plugins={downloadable ? [Counter, Download, Fullscreen, Share, Video, Zoom] : [Counter, Fullscreen, Share, Video, Zoom]}
+        plugins={
+          downloadable
+            ? [Captions, Counter, Download, Fullscreen, Share, Video, Zoom]
+            : [Captions, Counter, Fullscreen, Share, Video, Zoom]
+        }
+        captions={{ descriptionTextAlign: 'center', descriptionMaxLines: 1 }}
         controller={{ closeOnBackdropClick: true }}
-        // undefined перекрывает значение по умолчанию {}: просмотр падает с TypeError на styles.root.
-        styles={album.lightbox === 'light' ? LIGHT_LIGHTBOX : {}}
+        styles={album.lightbox === 'light' ? LIGHT_LIGHTBOX : DARK_LIGHTBOX}
       />
 
       <ScrollTopButton />
