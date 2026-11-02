@@ -22,7 +22,8 @@ const bucketUrl = `https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com/${R2_BUCKET
 const objectUrl = (key) => `${bucketUrl}/${key.split('/').map(encodeURIComponent).join('/')}`
 
 const remote = await listRemote()
-const local = (await readdir(localRoot, { recursive: true, withFileTypes: true }))
+// photos-out/ нет на новой машине до первого npm run photos — выгружать нечего.
+const local = (await readdir(localRoot, { recursive: true, withFileTypes: true }).catch(() => []))
   .filter((e) => e.isFile() && TYPES[path.extname(e.name).toLowerCase()])
   .map((e) => path.relative(localRoot, path.join(e.parentPath, e.name)).split(path.sep).join('/'))
   .sort()
