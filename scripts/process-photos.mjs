@@ -139,8 +139,14 @@ async function processVideo(srcFile, urlDir) {
 
   const outStat = await stat(outFile).catch(() => null)
   if (!outStat || outStat.mtimeMs < srcMtime) {
+    // HDR с iPhone (HLG) без перевода в BT.709 выходит в H.264 бледным. HLG совместим с SDR по кривой яркости,
+    // поэтому переводится только цветовой охват BT.2020 → BT.709 (zscale для полного тонмаппинга в сборке ffmpeg нет).
+    const { stdout: transfer } = await run('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=color_transfer', '-of', 'csv=p=0', srcFile])
+    const hdr = transfer.trim().split('\n')[0]
+    const filter = hdr === 'arib-std-b67' ? ['-vf', 'colorspace=all=bt709:iall=bt2020:itrc=bt709:format=yuv420p'] : []
+    if (hdr === 'smpte2084') console.warn(`⚠ ${name}: HDR10 (PQ) — цвета без перевода в SDR будут искажены`)
     // Поворот из метаданных (вертикальная съёмка) ffmpeg применяет к кадрам сам.
-    await run('ffmpeg', ['-v', 'error', '-y', '-i', srcFile, '-map', '0:v:0', '-map', '0:a:0?', ...VIDEO_ARGS, outFile])
+    await run('ffmpeg', ['-v', 'error', '-y', '-i', srcFile, '-map', '0:v:0', '-map', '0:a:0?', ...filter, ...VIDEO_ARGS, outFile])
   }
   const { stdout } = await run('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', outFile])
   // ffprobe 8 выводит поток дважды (ещё раз в группе потоков) — берётся первая строка.

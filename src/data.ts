@@ -83,8 +83,9 @@ export const photoCount = (entries: PhotoEntry[]) => {
   return parts.join(' · ')
 }
 
-// Имя исходника с камеры, как в подписи образца: DSCF4523_resized.jpg → DSCF4523.JPG. Остальные имена — как есть.
-export const originalName = (name: string) => name.replace(/_resized\.jpe?g$/i, '.JPG')
+// Имя исходника, как в подписи образца: у Fuji расширение .JPG (DSCF4523_resized.jpg → DSCF4523.JPG),
+// у iPhone сохраняется .jpeg (IMG_2249_resized.jpeg → IMG_2249.jpeg). Остальные имена — как есть.
+export const originalName = (name: string) => name.replace(/_resized\.jpg$/i, '.JPG').replace(/_resized(\.jpeg)$/i, '$1')
 
 // Ближайший размер не меньше нужной ширины.
 export const pickSize = (photo: PhotoEntry, minWidth: number) =>
