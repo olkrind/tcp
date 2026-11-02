@@ -141,7 +141,7 @@ export function AlbumPage() {
 
   return (
     <>
-      <section className="hero">
+      <section className={`hero${album.titleSize ? ` hero--title-${album.titleSize}` : ''}`}>
         {heroImg && (
           <img
             className="hero__img"

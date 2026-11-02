@@ -253,9 +253,32 @@ button {
 .hero__text h1 {
   margin: 0 0 24px;
   font-weight: 300;
-  font-size: clamp(24px, 4vw, 40px);
+  font-size: 40px;
   line-height: 1.1;
   text-transform: uppercase;
+}
+
+/* Размеры заголовка по образцу: small / medium / large — 40 / 48 / 62 px, на телефоне 34 / 38 / 48 px */
+.hero--title-medium .hero__text h1 {
+  font-size: 48px;
+}
+
+.hero--title-large .hero__text h1 {
+  font-size: 62px;
+}
+
+@media (max-width: 600px) {
+  .hero__text h1 {
+    font-size: 34px;
+  }
+
+  .hero--title-medium .hero__text h1 {
+    font-size: 38px;
+  }
+
+  .hero--title-large .hero__text h1 {
+    font-size: 48px;
+  }
 }
 
 .hero__text p {

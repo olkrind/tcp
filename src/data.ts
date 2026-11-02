@@ -32,6 +32,8 @@ export interface Album {
   coverPhoto?: PhotoEntry
   /** какая часть обложки видна, если кадр не помещается целиком: CSS object-position, по умолчанию "50% 50%" */
   coverPosition?: string
+  /** размер заголовка на обложке; по умолчанию "small" */
+  titleSize?: 'small' | 'medium' | 'large'
   /** затемнение обложки, 0…1; по умолчанию 0.4 */
   coverDim?: number
   archiveUrl: string | null
