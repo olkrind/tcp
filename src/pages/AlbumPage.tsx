@@ -21,20 +21,21 @@ import { TileButton, TileControls } from '../components/TileControls.tsx'
 import { coverOf, findAlbum, formatDate, originalName, photoCount, pickSize, sectionPath, siteConfig } from '../data.ts'
 import { NotFound } from './NotFound.tsx'
 
+// Кнопки, счётчик и стрелки — 44×44: помещаются в полосы 44 px вокруг кадра (index.css, .yarl__slide) и не заходят на фото.
 // Подпись с именем файла — по образцу: 13 px, по центру полосы 44 px под кадром.
 const CAPTION = {
+  '--yarl__toolbar_padding': '0px',
+  '--yarl__button_padding': '10px',
+  '--yarl__icon_size': '24px',
+  '--yarl__navigation_button_padding': '24px 10px',
   '--yarl__slide_captions_container_background': 'transparent',
   '--yarl__slide_captions_container_padding': '10px 10px 14px',
   '--yarl__slide_description_color': 'rgba(255, 255, 255, 0.75)',
 }
 
-// Полосы 44 px над кадром (кнопки) и под ним (подпись), как на образце.
-const SLIDE = { padding: '44px 16px' }
-
-const DARK_LIGHTBOX = { root: CAPTION, slide: SLIDE }
+const DARK_LIGHTBOX = { root: CAPTION }
 
 const LIGHT_LIGHTBOX = {
-  slide: SLIDE,
   container: { backgroundColor: '#fff' },
   root: {
     ...CAPTION,

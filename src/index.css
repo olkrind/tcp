@@ -534,6 +534,23 @@ button {
   stroke-linejoin: round;
 }
 
+/* Поля вокруг кадра в просмотре: сверху кнопки, снизу подпись, по бокам стрелки — по 44 px, на фото ничего не заходит.
+   На телефоне стрелок нет (листание свайпом), поля по бокам — 16 px. */
+.yarl__container .yarl__slide {
+  padding: 44px;
+}
+
+@media (max-width: 600px) {
+  .yarl__container .yarl__slide {
+    padding: 44px 16px;
+  }
+
+  .yarl__root .yarl__navigation_prev,
+  .yarl__root .yarl__navigation_next {
+    display: none;
+  }
+}
+
 .yarl__slide_description {
   font-size: 13px;
   font-weight: 300;
