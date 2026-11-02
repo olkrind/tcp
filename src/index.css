@@ -459,6 +459,57 @@ button {
   pointer-events: none;
 }
 
+/* Значки на плитке по образцу: полоса 60 px с затемнением снизу, белые значки 18 px справа, выезжает за 0.3 с */
+.gallery .react-photo-album--photo {
+  overflow: hidden;
+}
+
+.tile-controls {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 11px;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75));
+  transform: translateY(100%);
+  transition: transform 0.3s;
+  cursor: default;
+}
+
+.react-photo-album--photo:hover .tile-controls,
+.react-photo-album--photo:focus-within .tile-controls {
+  transform: none;
+}
+
+/* Без наведения (телефон) полоса не показывается: на образце значки появляются только при наведении */
+@media (hover: none) {
+  .tile-controls {
+    display: none;
+  }
+}
+
+.tile-controls__btn {
+  display: block;
+  padding: 21px 10px;
+  border: 0;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.tile-controls__btn svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .yarl__slide_description {
   font-size: 13px;
   font-weight: 300;

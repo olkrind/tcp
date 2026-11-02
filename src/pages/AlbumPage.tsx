@@ -16,6 +16,7 @@ import 'yet-another-react-lightbox/styles.css'
 import { DownloadAllButton } from '../components/DownloadAllButton.tsx'
 import { ScrollTopButton } from '../components/ScrollTopButton.tsx'
 import { SiteFooter } from '../components/SiteFooter.tsx'
+import { TileButton, TileControls } from '../components/TileControls.tsx'
 import { coverOf, findAlbum, formatDate, originalName, photoCount, pickSize, sectionPath, siteConfig } from '../data.ts'
 import { NotFound } from './NotFound.tsx'
 
@@ -72,11 +73,25 @@ export function AlbumPage() {
     [visible],
   )
 
+  // Ссылки «поделиться» и «скачать» — общие для плиток сетки и просмотра.
+  const links = useMemo(
+    () =>
+      visible.map((p) => ({
+        share: { url: `${pageUrl}?photo=${encodeURIComponent(p.name)}` },
+        download: !downloadable
+          ? undefined
+          : p.video
+            ? { url: p.video.src, filename: p.name.replace(/\.\w+$/, '.mp4') }
+            : { url: p.srcSet[p.srcSet.length - 1].src, filename: p.name.replace(/\.\w+$/, '.jpg') },
+      })),
+    [visible, pageUrl, downloadable],
+  )
+
   const slides = useMemo<Slide[]>(
     () =>
-      visible.map((p): Slide => {
+      visible.map((p, i): Slide => {
         const full = p.srcSet[p.srcSet.length - 1]
-        const share = { url: `${pageUrl}?photo=${encodeURIComponent(p.name)}` }
+        const { share, download } = links[i]
         const description = originalName(p.name)
         // Как на образце: запуск сразу, без звука, с кнопками плеера, без повтора.
         if (p.video)
@@ -91,7 +106,7 @@ export function AlbumPage() {
             controls: true,
             playsInline: true,
             controlsList: 'nodownload',
-            download: downloadable && { url: p.video.src, filename: p.name.replace(/\.\w+$/, '.mp4') },
+            download,
             share,
             description,
           }
@@ -100,12 +115,12 @@ export function AlbumPage() {
           width: p.width,
           height: p.height,
           srcSet: p.srcSet,
-          download: downloadable && { url: full.src, filename: p.name.replace(/\.\w+$/, '.jpg') },
+          download,
           share,
           description,
         }
       }),
-    [visible, pageUrl, downloadable],
+    [visible, links],
   )
 
   // Открытое фото хранится в ?photo=<имя файла>, чтобы ссылку на кадр можно было переслать.
@@ -228,7 +243,15 @@ export function AlbumPage() {
           columns={(width) => (width < 600 ? 1 : width < 1400 ? 2 : 3)}
           sizes={{ size: '1200px', sizes: [{ viewport: '(max-width: 1232px)', size: 'calc(100vw - 32px)' }] }}
           onClick={({ index }) => setOpen(index)}
-          render={{ extras: (_, { index }) => visible[index].video && <span className="gallery__play" aria-hidden="true" /> }}
+          render={{
+            button: TileButton,
+            extras: (_, { index }) => (
+              <>
+                {visible[index].video && <span className="gallery__play" aria-hidden="true" />}
+                <TileControls shareUrl={links[index].share.url} download={links[index].download} />
+              </>
+            ),
+          }}
         />
       </main>
 
