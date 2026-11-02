@@ -4,7 +4,9 @@
     "title": "Carmen Suite & Bolero",
     "date": "2026-02-27",
     "cover": "DSCF7978_resized.jpg",
-    "archiveUrl": null
+    "coverPosition": "51% 59%",
+    "archiveUrl": null,
+    "lightbox": "light"
   },
   {
     "slug": "sukok-02112025",
@@ -38,13 +40,15 @@
     "title": "«Мир моими глазами». Первая выставка картин Зарины. День 1",
     "date": "2025-10-25",
     "cover": "DSCF3880_resized.jpg",
-    "archiveUrl": null
+    "archiveUrl": null,
+    "lightbox": "light"
   },
   {
     "slug": "zarevna-exhibition-2",
     "title": "«Мир моими глазами». Первая выставка картин Зарины. День 2",
     "date": "2025-10-26",
     "cover": "DSCF4099_resized.jpg",
-    "archiveUrl": null
+    "archiveUrl": null,
+    "lightbox": "light"
   }
 ]

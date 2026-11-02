@@ -247,6 +247,7 @@ button {
   display: block;
   margin-bottom: 24px;
   font-size: 15px;
+  opacity: 0.5;
 }
 
 .hero__text h1 {

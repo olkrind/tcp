@@ -32,12 +32,12 @@ export interface Album {
   coverPhoto?: PhotoEntry
   /** какая часть обложки видна, если кадр не помещается целиком: CSS object-position, по умолчанию "50% 50%" */
   coverPosition?: string
-  /** затемнение обложки, 0…1; по умолчанию 0.35 */
+  /** затемнение обложки, 0…1; по умолчанию 0.4 */
   coverDim?: number
   archiveUrl: string | null
   /** false — без кнопок скачивания, правого клика и перетаскивания фото */
   downloadable?: boolean
-  /** промежуток между фото в сетке, px; по умолчанию 4 */
+  /** промежуток между фото в сетке, px; по умолчанию 2 */
   spacing?: number
   /** "light" — просмотр фото на белом фоне */
   lightbox?: 'light' | 'dark'

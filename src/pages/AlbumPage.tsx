@@ -149,7 +149,7 @@ export function AlbumPage() {
             srcSet={cover.srcSet.map((s) => `${s.src} ${s.width}w`).join(', ')}
             sizes="100vw"
             alt=""
-            style={{ filter: `brightness(${1 - (album.coverDim ?? 0.35)})`, objectPosition: album.coverPosition }}
+            style={{ filter: `brightness(${1 - (album.coverDim ?? 0.4)})`, objectPosition: album.coverPosition }}
           />
         )}
         <div className="hero__text">
@@ -204,7 +204,7 @@ export function AlbumPage() {
       <main className="gallery">
         <MasonryPhotoAlbum
           photos={photos}
-          spacing={album.spacing ?? 4}
+          spacing={album.spacing ?? 2}
           columns={(width) => (width < 600 ? 1 : width < 1400 ? 2 : 3)}
           sizes={{ size: '1200px', sizes: [{ viewport: '(max-width: 1232px)', size: 'calc(100vw - 32px)' }] }}
           onClick={({ index }) => setOpen(index)}
