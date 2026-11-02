@@ -10,10 +10,18 @@ lerna-debug.log*
 node_modules
 dist
 
-# Исходные фото — только локально; в репозиторий идут уменьшенные копии из public/photos
+# Исходные фото и уменьшенные копии — только локально; копии выгружаются в R2 (npm run photos)
 photos-src
+photos-out
+
 dist-ssr
 *.local
+
+# Ключи доступа к R2 — только локально
+.env
+
+# Служебные файлы wrangler
+.wrangler
 
 # Editor directories and files
 .vscode/*

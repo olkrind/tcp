@@ -1,0 +1,9 @@
+// Воркер отдаёт фото и видео альбомов из бакета R2 на бесплатном адресе *.workers.dev.
+// Развернуть: npx wrangler deploy --config worker/wrangler.jsonc
+{
+  "name": "tcp",
+  "main": "index.js",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": true,
+  "r2_buckets": [{ "binding": "PHOTOS", "bucket_name": "tcp-photos" }]
+}

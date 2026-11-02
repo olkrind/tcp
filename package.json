@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "photos": "node scripts/process-photos.mjs",
+    "photos": "node scripts/process-photos.mjs && npm run upload",
+    "upload": "node --env-file=.env scripts/upload-photos.mjs",
     "build": "tsc -b && vite build && node scripts/prerender.mjs",
     "lint": "oxlint",
     "preview": "vite preview"
@@ -23,6 +24,7 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
+    "aws4fetch": "^1.0.20",
     "oxlint": "^1.89.0",
     "sharp": "^0.35.5",
     "typescript": "~7.0.2",

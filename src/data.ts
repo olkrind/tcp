@@ -50,17 +50,18 @@ export interface Album {
   photos: PhotoEntry[]
 }
 
-const withBase = (src: string) => import.meta.env.BASE_URL + src
-const withBaseSrc = (p: PhotoEntry): PhotoEntry => ({
+// Фото и видео отдаёт воркер из бакета R2 (worker/): photos/<альбом>/<файл> → <photosUrl>/<альбом>/<файл>.
+const photoUrl = (src: string) => src.replace(/^photos\//, `${site.photosUrl}/`)
+const withPhotoUrls = (p: PhotoEntry): PhotoEntry => ({
   ...p,
-  srcSet: p.srcSet.map((s) => ({ ...s, src: withBase(s.src) })),
-  video: p.video && { ...p.video, src: withBase(p.video.src) },
+  srcSet: p.srcSet.map((s) => ({ ...s, src: photoUrl(s.src) })),
+  video: p.video && { ...p.video, src: photoUrl(p.video.src) },
 })
 
 export const albums: Album[] = (generated as Album[]).map((album) => ({
   ...album,
-  coverPhoto: album.coverPhoto && withBaseSrc(album.coverPhoto),
-  photos: album.photos.map(withBaseSrc),
+  coverPhoto: album.coverPhoto && withPhotoUrls(album.coverPhoto),
+  photos: album.photos.map(withPhotoUrls),
 }))
 export const siteConfig = site
 

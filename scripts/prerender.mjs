@@ -12,6 +12,8 @@ const albums = JSON.parse(await readFile(path.join(root, 'src', 'generated', 'al
 const template = await readFile(path.join(dist, 'index.html'), 'utf8')
 
 const escape = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
+// Фото — на воркере R2, как в src/data.ts.
+const photoUrl = (src) => src.replace(/^photos\//, `${site.photosUrl}/`)
 
 function render({ title, description, url, image }) {
   const tags = [
@@ -49,7 +51,7 @@ await writeFile(
     title: `Albums · ${site.title}`,
     description: site.author,
     url: `${site.siteUrl}/albums/`,
-    image: firstCover && `${site.siteUrl}/${firstCover.srcSet.at(-1).src}`,
+    image: firstCover && photoUrl(firstCover.srcSet.at(-1).src),
   }),
 )
 
@@ -76,7 +78,7 @@ await writeFile(path.join(dist, 'contact.vcf'), vcard + '\r\n')
 
 for (const album of albums) {
   const cover = album.coverPhoto ?? album.photos.find((p) => p.name === album.cover)
-  const image = cover && `${site.siteUrl}/${cover.srcSet.at(-1).src}`
+  const image = cover && photoUrl(cover.srcSet.at(-1).src)
   // Первый раздел открывается по адресу альбома, остальные — /albums/<slug>/<section>/.
   const pages = [{ sub: '', title: album.title }]
   for (const s of album.sections?.slice(1) ?? []) pages.push({ sub: `${s.slug}/`, title: `${s.title}. ${album.title}` })

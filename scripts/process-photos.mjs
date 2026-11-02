@@ -1,5 +1,6 @@
-// Готовит фото для сайта: photos-src/<slug>/* (или photos-src/<slug>/<раздел>/*) → public/photos/… и src/generated/albums.json.
-// Запуск: npm run photos. Уже обработанные файлы пропускаются, если исходник не новее.
+// Готовит фото для сайта: photos-src/<slug>/* (или photos-src/<slug>/<раздел>/*) → photos-out/… и src/generated/albums.json.
+// Запуск: npm run photos — после обработки выгружает photos-out/ в R2 (scripts/upload-photos.mjs).
+// Уже обработанные файлы пропускаются, если исходник не новее.
 // Видео сжимается ffmpeg (должен быть в PATH) в MP4; заставка в сетке — первый кадр.
 import { execFile } from 'node:child_process'
 import { mkdir, mkdtemp, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises'
@@ -12,7 +13,8 @@ const run = promisify(execFile)
 
 const root = path.resolve(import.meta.dirname, '..')
 const srcRoot = path.join(root, 'photos-src')
-const outRoot = path.join(root, 'public', 'photos')
+// Вне public/: в сборку сайта копии не попадают, их отдаёт воркер из R2.
+const outRoot = path.join(root, 'photos-out')
 const manifestPath = path.join(root, 'src', 'generated', 'albums.json')
 
 // Размер — по длинной стороне. Последний — JPEG: его отдаёт кнопка «Скачать» и он же идёт в og:image.
@@ -59,7 +61,7 @@ for (const album of albums) {
     continue
   }
 
-  // Альбом с разделами: фото раздела — в photos-src/<slug>/<section.dir>/, копии — в public/photos/<slug>/<section.slug>/.
+  // Альбом с разделами: фото раздела — в photos-src/<slug>/<section.dir>/, копии — в photos-out/<slug>/<section.slug>/.
   const parts = album.sections
     ? album.sections.map((s) => ({ section: s.slug, srcDir: path.join(srcDir, s.dir), urlDir: `${album.slug}/${s.slug}` }))
     : [{ section: undefined, srcDir, urlDir: album.slug }]
