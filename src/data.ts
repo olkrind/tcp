@@ -14,6 +14,8 @@ export interface PhotoEntry {
   srcSet: ImageSize[]
   /** slug раздела — у альбомов с разделами */
   section?: string
+  /** у видео: MP4; srcSet — заставка (первый кадр) */
+  video?: ImageSize
 }
 
 export interface Section {
@@ -45,7 +47,11 @@ export interface Album {
 }
 
 const withBase = (src: string) => import.meta.env.BASE_URL + src
-const withBaseSrc = (p: PhotoEntry): PhotoEntry => ({ ...p, srcSet: p.srcSet.map((s) => ({ ...s, src: withBase(s.src) })) })
+const withBaseSrc = (p: PhotoEntry): PhotoEntry => ({
+  ...p,
+  srcSet: p.srcSet.map((s) => ({ ...s, src: withBase(s.src) })),
+  video: p.video && { ...p.video, src: withBase(p.video.src) },
+})
 
 export const albums: Album[] = (generated as Album[]).map((album) => ({
   ...album,
@@ -65,7 +71,13 @@ export const sectionPath = (album: Album, section: Section) =>
 // ДД.ММ.ГГГГ независимо от языка браузера.
 export const formatDate = (iso: string) => iso.split('-').reverse().join('.')
 
-export const photoCount = (n: number) => `${n} ${n === 1 ? 'photo' : 'photos'}`
+export const photoCount = (entries: PhotoEntry[]) => {
+  const videos = entries.filter((p) => p.video).length
+  const photos = entries.length - videos
+  const parts = [`${photos} ${photos === 1 ? 'photo' : 'photos'}`]
+  if (videos) parts.push(`${videos} ${videos === 1 ? 'video' : 'videos'}`)
+  return parts.join(' · ')
+}
 
 // Ближайший размер не меньше нужной ширины.
 export const pickSize = (photo: PhotoEntry, minWidth: number) =>

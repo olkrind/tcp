@@ -13,10 +13,10 @@ export function DownloadAllButton({ album }: { album: Album }) {
       const { downloadZip } = await import('client-zip')
       async function* files() {
         for (const [i, photo] of album.photos.entries()) {
-          const largest = photo.srcSet[photo.srcSet.length - 1]
-          const response = await fetch(largest.src)
-          if (!response.ok) throw new Error(`${largest.src}: ${response.status}`)
-          yield { name: photo.name.replace(/\.\w+$/, '.jpg'), input: response }
+          const file = photo.video ?? photo.srcSet[photo.srcSet.length - 1]
+          const response = await fetch(file.src)
+          if (!response.ok) throw new Error(`${file.src}: ${response.status}`)
+          yield { name: photo.name.replace(/\.\w+$/, photo.video ? '.mp4' : '.jpg'), input: response }
           setProgress(i + 1)
         }
       }

@@ -8,6 +8,7 @@ import 'yet-another-react-lightbox/plugins/counter.css'
 import Download from 'yet-another-react-lightbox/plugins/download'
 import Fullscreen from 'yet-another-react-lightbox/plugins/fullscreen'
 import Share from 'yet-another-react-lightbox/plugins/share'
+import Video from 'yet-another-react-lightbox/plugins/video'
 import Zoom from 'yet-another-react-lightbox/plugins/zoom'
 import 'yet-another-react-lightbox/styles.css'
 import { DownloadAllButton } from '../components/DownloadAllButton.tsx'
@@ -56,15 +57,32 @@ export function AlbumPage() {
 
   const slides = useMemo<Slide[]>(
     () =>
-      visible.map((p) => {
+      visible.map((p): Slide => {
         const full = p.srcSet[p.srcSet.length - 1]
+        const share = { url: `${pageUrl}?photo=${encodeURIComponent(p.name)}` }
+        // Как на образце: запуск сразу, без звука, с кнопками плеера, без повтора.
+        if (p.video)
+          return {
+            type: 'video',
+            poster: full.src,
+            width: p.video.width,
+            height: p.video.height,
+            sources: [{ src: p.video.src, type: 'video/mp4' }],
+            autoPlay: true,
+            muted: true,
+            controls: true,
+            playsInline: true,
+            controlsList: 'nodownload',
+            download: downloadable && { url: p.video.src, filename: p.name.replace(/\.\w+$/, '.mp4') },
+            share,
+          }
         return {
           src: full.src,
           width: p.width,
           height: p.height,
           srcSet: p.srcSet,
           download: downloadable && { url: full.src, filename: p.name.replace(/\.\w+$/, '.jpg') },
-          share: { url: `${pageUrl}?photo=${encodeURIComponent(p.name)}` },
+          share,
         }
       }),
     [visible, pageUrl, downloadable],
@@ -169,7 +187,7 @@ export function AlbumPage() {
             <Link to="/albums/" className="toolbar__back">
               ← All albums
             </Link>
-            <span className="toolbar__count">{photoCount(album.photos.length)}</span>
+            <span className="toolbar__count">{photoCount(album.photos)}</span>
           </>
         )}
         <button className="toolbar__btn" onClick={share}>
@@ -190,6 +208,7 @@ export function AlbumPage() {
           columns={(width) => (width < 600 ? 1 : width < 1400 ? 2 : 3)}
           sizes={{ size: '1200px', sizes: [{ viewport: '(max-width: 1232px)', size: 'calc(100vw - 32px)' }] }}
           onClick={({ index }) => setOpen(index)}
+          render={{ extras: (_, { index }) => visible[index].video && <span className="gallery__play" aria-hidden="true" /> }}
         />
       </main>
 
@@ -199,9 +218,10 @@ export function AlbumPage() {
         slides={slides}
         close={() => setOpen(-1)}
         on={{ view: ({ index }) => openIndex >= 0 && index !== openIndex && setOpen(index) }}
-        plugins={downloadable ? [Counter, Download, Fullscreen, Share, Zoom] : [Counter, Fullscreen, Share, Zoom]}
+        plugins={downloadable ? [Counter, Download, Fullscreen, Share, Video, Zoom] : [Counter, Fullscreen, Share, Video, Zoom]}
         controller={{ closeOnBackdropClick: true }}
-        styles={album.lightbox === 'light' ? LIGHT_LIGHTBOX : undefined}
+        // undefined перекрывает значение по умолчанию {}: просмотр падает с TypeError на styles.root.
+        styles={album.lightbox === 'light' ? LIGHT_LIGHTBOX : {}}
       />
 
       <ScrollTopButton />

@@ -424,6 +424,17 @@ button {
   cursor: zoom-in;
 }
 
+/* Значок видео по образцу: 42 px, отступ 10 px; круг — белый 0.85, треугольник — чёрный 0.3 */
+.gallery__play {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 42px;
+  height: 42px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='60' fill='%23fff' fill-opacity='.85'/%3E%3Cpath d='M46 40v40l34-20z' fill='%23000' fill-opacity='.3'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
 /* Альбом без скачивания: фото нельзя перетащить на рабочий стол, на iOS долгое нажатие не открывает «Сохранить» */
 .no-save img {
   -webkit-user-drag: none;

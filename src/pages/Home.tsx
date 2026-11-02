@@ -28,7 +28,7 @@ export function Home() {
               {img && <img src={img.src} width={img.width} height={img.height} alt="" loading="lazy" />}
               <span className="album-card__date">{formatDate(album.date)}</span>
               <span className="album-card__title">{album.title}</span>
-              <span className="album-card__count">{photoCount(album.photos.length)}</span>
+              <span className="album-card__count">{photoCount(album.photos)}</span>
             </Link>
           )
         })}
