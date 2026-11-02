@@ -16,6 +16,7 @@ import 'yet-another-react-lightbox/styles.css'
 import { DownloadAllButton } from '../components/DownloadAllButton.tsx'
 import { ScrollTopButton } from '../components/ScrollTopButton.tsx'
 import { SiteFooter } from '../components/SiteFooter.tsx'
+import { StoryboardGallery } from '../components/StoryboardGallery.tsx'
 import { TileButton, TileControls } from '../components/TileControls.tsx'
 import { coverOf, findAlbum, formatDate, originalName, photoCount, pickSize, sectionPath, siteConfig } from '../data.ts'
 import { NotFound } from './NotFound.tsx'
@@ -163,6 +164,13 @@ export function AlbumPage() {
   const cover = coverOf(album)
   const heroImg = cover && pickSize(cover, 2048)
 
+  const tileExtras = (index: number) => (
+    <>
+      {visible[index].video && <span className="gallery__play" aria-hidden="true" />}
+      <TileControls shareUrl={links[index].share.url} download={links[index].download} />
+    </>
+  )
+
   const share = async () => {
     const title = document.title
     if (navigator.share) {
@@ -237,22 +245,18 @@ export function AlbumPage() {
       </div>
 
       <main className="gallery">
-        <MasonryPhotoAlbum
-          photos={photos}
-          spacing={album.spacing ?? 2}
-          columns={(width) => (width < 600 ? 1 : width < 1400 ? 2 : 3)}
-          sizes={{ size: '1200px', sizes: [{ viewport: '(max-width: 1232px)', size: 'calc(100vw - 32px)' }] }}
-          onClick={({ index }) => setOpen(index)}
-          render={{
-            button: TileButton,
-            extras: (_, { index }) => (
-              <>
-                {visible[index].video && <span className="gallery__play" aria-hidden="true" />}
-                <TileControls shareUrl={links[index].share.url} download={links[index].download} />
-              </>
-            ),
-          }}
-        />
+        {album.layout === 'storyboard' ? (
+          <StoryboardGallery photos={photos} spacing={album.spacing ?? 2} onClick={setOpen} extras={tileExtras} />
+        ) : (
+          <MasonryPhotoAlbum
+            photos={photos}
+            spacing={album.spacing ?? 2}
+            columns={(width) => (width < 600 ? 1 : width < 1400 ? 2 : 3)}
+            sizes={{ size: '1200px', sizes: [{ viewport: '(max-width: 1232px)', size: 'calc(100vw - 32px)' }] }}
+            onClick={({ index }) => setOpen(index)}
+            render={{ button: TileButton, extras: (_, { index }) => tileExtras(index) }}
+          />
+        )}
       </main>
 
       <Lightbox

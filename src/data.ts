@@ -39,6 +39,8 @@ export interface Album {
   archiveUrl: string | null
   /** false — без кнопок скачивания, правого клика и перетаскивания фото */
   downloadable?: boolean
+  /** раскладка сетки: "masonry" — колонки (по умолчанию), "storyboard" — ряды одной высоты */
+  layout?: 'masonry' | 'storyboard'
   /** промежуток между фото в сетке, px; по умолчанию 2 */
   spacing?: number
   /** "light" — просмотр фото на белом фоне */

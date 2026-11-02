@@ -459,8 +459,30 @@ button {
   pointer-events: none;
 }
 
+.storyboard,
+.storyboard__row {
+  display: flex;
+}
+
+.storyboard {
+  flex-direction: column;
+}
+
+.storyboard__tile {
+  position: relative;
+  min-width: 0;
+  cursor: zoom-in;
+}
+
+.storyboard__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 /* Значки на плитке по образцу: полоса 60 px с затемнением снизу, белые значки 18 px справа, выезжает за 0.3 с */
-.gallery .react-photo-album--photo {
+.gallery .react-photo-album--photo,
+.storyboard__tile {
   overflow: hidden;
 }
 
@@ -479,7 +501,9 @@ button {
 }
 
 .react-photo-album--photo:hover .tile-controls,
-.react-photo-album--photo:focus-within .tile-controls {
+.react-photo-album--photo:focus-within .tile-controls,
+.storyboard__tile:hover .tile-controls,
+.storyboard__tile:focus-within .tile-controls {
   transform: none;
 }
 
