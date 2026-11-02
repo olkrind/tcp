@@ -123,13 +123,16 @@ if (await stat(avatarSrc).catch(() => null)) {
       .png()
       .toFile(path.join(root, 'public', `favicon-${size}.png`))
   }
-  await sharp(avatarSrc)
-    .rotate()
-    .resize(180, 180, { fit: 'cover' })
-    .toColourspace('srgb')
-    .png()
-    .toFile(path.join(root, 'public', 'apple-touch-icon.png'))
-  console.log('Значок вкладки: public/favicon-32.png, public/favicon-192.png, public/apple-touch-icon.png')
+  // icon-192 и icon-512 — для manifest.webmanifest (сайт как приложение на экране «Домой»), тоже без прозрачности.
+  for (const [size, file] of [[180, 'apple-touch-icon.png'], [192, 'icon-192.png'], [512, 'icon-512.png']]) {
+    await sharp(avatarSrc)
+      .rotate()
+      .resize(size, size, { fit: 'cover' })
+      .toColourspace('srgb')
+      .png()
+      .toFile(path.join(root, 'public', file))
+  }
+  console.log('Значки: public/favicon-32.png, favicon-192.png, apple-touch-icon.png, icon-192.png, icon-512.png')
 }
 
 // Видео → <имя>.mp4 и заставка из первого кадра в тех же размерах, что фото. В манифесте — запись фото с полем video.

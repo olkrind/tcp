@@ -12,7 +12,7 @@
 | `/albums/<slug>/<section>/` | остальные разделы альбома с разделами |
 | `/contact.vcf` | файл контакта, собирается при `npm run build` из `site.config.json` и `avatar-400.jpg` |
 
-Фото профиля — `photos-src/avatar.jpg` (вне git); `npm run photos` делает из него `public/avatar-400.jpg`, `public/avatar-1200.jpg` и значок вкладки: `favicon-32.png`, `favicon-192.png` (скругление углов как у иконок iOS), `apple-touch-icon.png` (квадрат, для иконки на экране «Домой» в iOS).
+Фото профиля — `photos-src/avatar.jpg` (вне git); `npm run photos` делает из него `public/avatar-400.jpg`, `public/avatar-1200.jpg` и значок вкладки: `favicon-32.png`, `favicon-192.png` (скругление углов как у иконок iOS), `apple-touch-icon.png` (квадрат, для иконки на экране «Домой» в iOS), `icon-192.png` и `icon-512.png` для `public/manifest.webmanifest`: с экрана «Домой» сайт открывается без интерфейса браузера; подпись под иконкой — `short_name` в манифесте и `apple-mobile-web-app-title` в `index.html`.
 
 ## Структура
 
