@@ -7,6 +7,8 @@ import { AlbumPage } from './pages/AlbumPage.tsx'
 import { CardPage } from './pages/CardPage.tsx'
 import { Home } from './pages/Home.tsx'
 import { NotFound } from './pages/NotFound.tsx'
+import { PuzzleAlbumPage } from './pages/PuzzleAlbumPage.tsx'
+import { PuzzleHome } from './pages/PuzzleHome.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -17,6 +19,9 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/albums" element={<Home />} />
         <Route path="/albums/:slug" element={<AlbumPage />} />
         <Route path="/albums/:slug/:section" element={<AlbumPage />} />
+        <Route path="/puzzle" element={<PuzzleHome />} />
+        <Route path="/puzzle/:slug" element={<PuzzleAlbumPage />} />
+        <Route path="/puzzle/:slug/:tab" element={<PuzzleAlbumPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

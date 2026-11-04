@@ -98,6 +98,26 @@ for (const album of albums) {
   }
 }
 
+// Пазл: альбомы со скачиванием, в которых есть фото; вкладки начатых и собранных — /puzzle/<slug>/continue/ и done/,
+// игра — /puzzle/<slug>/?photo=<файл>.
+const puzzleAlbums = albums.filter((a) => a.downloadable !== false && a.photos.some((p) => !p.video))
+const puzzlePages = [[null, ''], ...puzzleAlbums.flatMap((a) => [[a, ''], [a, 'continue/'], [a, 'done/']])]
+for (const [album, tab] of puzzlePages) {
+  const sub = album ? `${album.slug}/${tab}` : ''
+  const cover = album && (album.coverPhoto ?? album.photos.find((p) => p.name === album.cover))
+  const dir = path.join(dist, 'puzzle', sub)
+  await mkdir(dir, { recursive: true })
+  await writeFile(
+    path.join(dir, 'index.html'),
+    render({
+      title: album ? `${album.title} · Puzzle Me · ${site.title}` : `Puzzle Me · ${site.title}`,
+      description: site.author,
+      url: `${site.siteUrl}/puzzle/${sub}`,
+      image: cover ? photoUrl(cover.srcSet.at(-1).src) : firstCover && photoUrl(firstCover.srcSet.at(-1).src),
+    }),
+  )
+}
+
 await writeFile(path.join(dist, '404.html'), template)
 // Без .nojekyll GitHub Pages обрабатывает сайт Jekyll и не отдаёт файлы и папки, начинающиеся с «_».
 await writeFile(path.join(dist, '.nojekyll'), '')

@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router'
-import { albums, coverOf, formatDate, photoCount, pickSize, siteConfig } from '../data.ts'
+import { albums, coverOf, formatDate, photoCount, puzzleAlbums, siteConfig } from '../data.ts'
+import { AlbumCard } from '../components/AlbumCard.tsx'
 import { SocialLinks } from '../components/SocialLinks.tsx'
 
 export function Home() {
@@ -20,18 +21,25 @@ export function Home() {
 
       <main className="album-list">
         {albums.length === 0 && <p className="empty">No albums yet.</p>}
-        {albums.map((album) => {
-          const cover = coverOf(album)
-          const img = cover && pickSize(cover, 1000)
-          return (
-            <Link key={album.slug} to={`/albums/${album.slug}/`} className="album-card">
-              {img && <img src={img.src} width={img.width} height={img.height} alt="" loading="lazy" />}
-              <span className="album-card__date">{formatDate(album.date)}</span>
-              <span className="album-card__title">{album.title}</span>
-              <span className="album-card__count">{photoCount(album.photos)}</span>
-            </Link>
-          )
-        })}
+        {albums.map((album) => (
+          <AlbumCard
+            key={album.slug}
+            to={`/albums/${album.slug}/`}
+            cover={coverOf(album)}
+            date={formatDate(album.date)}
+            title={album.title}
+            count={photoCount(album.photos)}
+          />
+        ))}
+        {puzzleAlbums.length > 0 && (
+          <AlbumCard
+            to="/puzzle/"
+            cover={coverOf(puzzleAlbums[0])}
+            date="Game"
+            title="Puzzle Me"
+            count={`${puzzleAlbums.length} ${puzzleAlbums.length === 1 ? 'album' : 'albums'}`}
+          />
+        )}
       </main>
     </>
   )

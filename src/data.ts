@@ -67,6 +67,10 @@ export const siteConfig = site
 
 export const findAlbum = (slug: string | undefined) => albums.find((a) => a.slug === slug)
 
+// Пазл: альбомы со скачиванием, только фото.
+export const puzzlePhotos = (album: Album) => album.photos.filter((p) => !p.video)
+export const puzzleAlbums = albums.filter((a) => a.downloadable !== false && puzzlePhotos(a).length > 0)
+
 export const coverOf = (album: Album) =>
   album.coverPhoto ?? album.photos.find((p) => p.name === album.cover) ?? album.photos[0]
 
