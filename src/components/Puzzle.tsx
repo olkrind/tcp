@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent } from 'react'
 import { pickSize, type PhotoEntry } from '../data.ts'
+import { Confetti } from './Confetti.tsx'
 import {
   addResult,
   buildPuzzle,
@@ -84,6 +85,8 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
   const [game, setGame] = useState(() => loadGame(storageKey))
   const [choosing, setChoosing] = useState(game === null)
   const [hint, setHint] = useState(false)
+  // Номер залпа конфетти; 0 — не было.
+  const [confetti, setConfetti] = useState(0)
   const [results, setResults] = useState(() => loadResults(storageKey))
   const [img, setImg] = useState<HTMLImageElement | null>(null)
   const [area, setArea] = useState({ w: 0, h: 0 })
@@ -146,6 +149,7 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
     if (next.placed.length === next.n && next.solvedIn === undefined) {
       next.solvedIn = next.elapsed
       setResults(addResult(storageKey, { n: next.n, time: next.solvedIn, at: now }))
+      setConfetti((c) => c + 1)
     }
     saveGame(storageKey, next)
     setGame(next)
@@ -386,6 +390,8 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
           <PieceCanvas piece={shape.pieces[dragId]} img={img} scale={scale} />
         </div>
       )}
+
+      {confetti > 0 && <Confetti key={confetti} />}
 
       {choosing && (
         <div className="puzzle__dialog">
