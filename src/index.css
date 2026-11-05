@@ -714,8 +714,20 @@ button {
   inset: 0;
   display: grid;
   place-items: center;
-  margin: 0;
+  padding: 16px;
   color: var(--muted);
+  text-align: center;
+}
+
+.puzzle__status p {
+  margin: 0;
+}
+
+.puzzle__dialog-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 24px;
 }
 
 .puzzle__tray {

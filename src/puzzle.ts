@@ -153,10 +153,23 @@ export const PUZZLE_SIZES = [12, 24, 48, 96]
 // Игра хранится в localStorage по фото: продолжается после закрытия страницы.
 export const puzzleKey = (slug: string, photo: string) => `puzzle:${slug}/${photo}`
 
+const isNumber = (v: unknown): v is number => typeof v === 'number' && Number.isFinite(v)
+
+// Повреждённая или старая запись — null: часть с номером вне [0, n) обрушила бы отрисовку игры.
+function isGame(g: unknown): g is Game {
+  if (!g || typeof g !== 'object') return false
+  const { n, seed, tray, loose, placed, elapsed } = g as Record<string, unknown>
+  if (!isNumber(n) || !PUZZLE_SIZES.includes(n) || !isNumber(seed) || !isNumber(elapsed)) return false
+  if (!Array.isArray(tray) || !Array.isArray(loose) || !Array.isArray(placed)) return false
+  if (!loose.every((l) => Array.isArray(l) && l.length === 3 && l.every(isNumber))) return false
+  const ids = [...tray, ...placed, ...loose.map((l) => l[0])]
+  return ids.length === n && new Set(ids).size === n && ids.every((id) => Number.isInteger(id) && id >= 0 && id < n)
+}
+
 export function loadGame(key: string): Game | null {
   try {
     const g = JSON.parse(localStorage.getItem(key) ?? 'null')
-    return g && PUZZLE_SIZES.includes(g.n) && Array.isArray(g.tray) && Array.isArray(g.loose) && Array.isArray(g.placed) ? g : null
+    return isGame(g) ? g : null
   } catch {
     return null
   }
@@ -184,7 +197,7 @@ const resultsKey = (key: string) => key.replace(/^puzzle:/, 'puzzle-results:')
 export function loadResults(key: string): Result[] {
   try {
     const results = JSON.parse(localStorage.getItem(resultsKey(key)) ?? 'null')
-    if (Array.isArray(results)) return results
+    if (Array.isArray(results)) return results.filter((r) => r && isNumber(r.n) && isNumber(r.time))
   } catch {
     return []
   }

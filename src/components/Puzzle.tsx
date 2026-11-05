@@ -37,20 +37,39 @@ const TRAY_PIECE = 72
 // Отступ кадра от краёв поля, px.
 const FRAME_PAD = 16
 
-function PieceCanvas({ piece, img, scale, className, style, onPointerDown }: {
+// Пауза ввода между ходами, которая идёт в зачёт времени сборки; дольше — отошли от игры.
+const MAX_GAP = 5 * 60 * 1000
+// Перерисовка частей после изменения окна — когда размер перестал меняться.
+const REDRAW_DELAY = 150
+
+const clamp = (v: number, max: number) => Math.max(0, Math.min(v, max))
+
+// Проверка попадания в контур части: прозрачные углы рамки не берут часть.
+let hitContext: CanvasRenderingContext2D | null = null
+const hitTest = (path: Path2D, x: number, y: number) =>
+  (hitContext ??= document.createElement('canvas').getContext('2d'))?.isPointInPath(path, x, y) ?? true
+
+function PieceCanvas({ piece, img, scale, className, style }: {
   piece: Piece
   img: HTMLImageElement
   scale: number
   className?: string
   style?: CSSProperties
-  onPointerDown?: (e: PointerEvent<HTMLCanvasElement>) => void
 }) {
   const ref = useRef<HTMLCanvasElement>(null)
+  // При изменении окна масштаб меняется на каждом кадре: до перерисовки canvas растягивается CSS.
+  const [drawScale, setDrawScale] = useState(scale)
+  useEffect(() => {
+    if (scale === drawScale) return
+    const timer = setTimeout(() => setDrawScale(scale), REDRAW_DELAY)
+    return () => clearTimeout(timer)
+  }, [scale, drawScale])
+
   useEffect(() => {
     const canvas = ref.current
     const ctx = canvas?.getContext('2d')
     if (!canvas || !ctx) return
-    const k = scale * (window.devicePixelRatio || 1)
+    const k = drawScale * (window.devicePixelRatio || 1)
     canvas.width = Math.ceil(piece.bw * k)
     canvas.height = Math.ceil(piece.bh * k)
     ctx.setTransform(k, 0, 0, k, -piece.bx * k, -piece.by * k)
@@ -58,18 +77,11 @@ function PieceCanvas({ piece, img, scale, className, style, onPointerDown }: {
     ctx.clip(piece.path)
     ctx.drawImage(img, 0, 0)
     ctx.restore()
-    ctx.lineWidth = 1 / scale
+    ctx.lineWidth = 1 / drawScale
     ctx.strokeStyle = 'rgba(0, 0, 0, 0.35)'
     ctx.stroke(piece.path)
-  }, [piece, img, scale])
-  return (
-    <canvas
-      ref={ref}
-      className={className}
-      style={{ width: piece.bw * scale, height: piece.bh * scale, ...style }}
-      onPointerDown={onPointerDown}
-    />
-  )
+  }, [piece, img, drawScale])
+  return <canvas ref={ref} className={className} style={{ width: piece.bw * scale, height: piece.bh * scale, ...style }} />
 }
 
 function SparklesIcon({ on }: { on: boolean }) {
@@ -89,6 +101,8 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
   const [confetti, setConfetti] = useState(0)
   const [results, setResults] = useState(() => loadResults(storageKey))
   const [img, setImg] = useState<HTMLImageElement | null>(null)
+  const [imgError, setImgError] = useState(false)
+  const [attempt, setAttempt] = useState(0)
   const [area, setArea] = useState({ w: 0, h: 0 })
   const [dragId, setDragId] = useState<number | null>(null)
   const [sizes] = useState(() => (window.matchMedia('(max-width: 600px)').matches ? PHONE_SIZES : PUZZLE_SIZES))
@@ -100,17 +114,44 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
   const sessionStart = useRef(0)
   useEffect(() => {
     sessionStart.current = Date.now()
+    // Пока вкладка скрыта или телефон заблокирован, время сборки не идёт.
+    let hiddenAt = 0
+    const onVisibility = () => {
+      if (document.hidden) hiddenAt = Date.now()
+      else if (hiddenAt) sessionStart.current += Date.now() - hiddenAt
+    }
+    document.addEventListener('visibilitychange', onVisibility)
+    return () => document.removeEventListener('visibilitychange', onVisibility)
+  }, [])
+
+  // Escape закрывает окно выбора числа частей, если есть к чему вернуться.
+  const hasGame = game !== null
+  useEffect(() => {
+    if (!choosing || !hasGame) return
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setChoosing(false)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [choosing, hasGame])
+
+  // Перетаскивание, прерванное выходом из игры, снимает свои слушатели и не сохраняет ход.
+  const dragEnd = useRef<{ end?: () => void }>({})
+  useEffect(() => {
+    const holder = dragEnd.current
+    return () => holder.end?.()
   }, [])
 
   const src = pickSize(photo, 1600).src
   useEffect(() => {
     const image = new Image()
     image.onload = () => setImg(image)
+    // Ошибка воркера (сеть, суточный лимит) — сообщение и повтор вместо бесконечного «Loading…».
+    image.onerror = () => setImgError(true)
     image.src = src
     return () => {
       image.onload = null
+      image.onerror = null
     }
-  }, [src])
+  }, [src, attempt])
 
   useLayoutEffect(() => {
     const el = playRef.current
@@ -142,9 +183,22 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
   }
   const trayScale = shape ? TRAY_PIECE / Math.max(shape.pieces[0].bw, shape.pieces[0].bh) : 1
 
+  // Место части, отложенной на поле, — в пределах поля: после поворота экрана или изменения окна она не уходит за край.
+  const loosePosition = (p: Piece, x: number, y: number) =>
+    frame && {
+      left: clamp(frame.left + (x - p.x + p.bx) * scale, area.w - p.bw * scale),
+      top: clamp(frame.top + (y - p.y + p.by) * scale, area.h - p.bh * scale),
+    }
+
+  // Отпускание части обрабатывается слушателем, созданным при нажатии: состояние — на момент отпускания.
+  const live = useRef({ game, shape, frame, scale, area })
+  useLayoutEffect(() => {
+    live.current = { game, shape, frame, scale, area }
+  })
+
   const commit = (next: Game) => {
     const now = Date.now()
-    next = { ...next, elapsed: next.elapsed + now - sessionStart.current, updatedAt: now }
+    next = { ...next, elapsed: next.elapsed + Math.min(now - sessionStart.current, MAX_GAP), updatedAt: now }
     sessionStart.current = now
     if (next.placed.length === next.n && next.solvedIn === undefined) {
       next.solvedIn = next.elapsed
@@ -172,7 +226,7 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
   useLayoutEffect(moveFloat, [dragId])
 
   const drop = (d: Drag) => {
-    const g = game
+    const { game: g, shape, frame, scale, area } = live.current
     const play = playRef.current?.getBoundingClientRect()
     const tray = trayRef.current?.getBoundingClientRect()
     if (!g || !shape || !frame || !play || !tray) return
@@ -201,19 +255,18 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
     commit({ ...rest, loose: [...rest.loose, [d.id, (left - frame.left) / scale + margin, (top - frame.top) / scale + margin]] })
   }
 
-  const grab = (e: PointerEvent<HTMLElement>, id: number, from: Drag['from']) => {
+  // Из ленты часть берётся за середину и сразу в размер поля; с поля — за точку касания (ox, oy).
+  const grab = (e: PointerEvent<HTMLElement>, id: number, from: Drag['from'], ox?: number, oy?: number) => {
     if (e.button !== 0 || !shape || drag.current) return
     window.getSelection()?.removeAllRanges()
     const p = shape.pieces[id]
-    const rect = e.currentTarget.getBoundingClientRect()
-    // Из ленты часть берётся за середину и сразу в размер поля; с поля — за точку касания.
     const fromTray = from === 'tray'
     const d: Drag = {
       id,
       from,
       pointerId: e.pointerId,
-      ox: fromTray ? (p.bw * scale) / 2 : e.clientX - rect.left,
-      oy: fromTray ? (p.bh * scale) / 2 : e.clientY - rect.top,
+      ox: ox ?? (p.bw * scale) / 2,
+      oy: oy ?? (p.bh * scale) / 2,
       sx: e.clientX,
       sy: e.clientY,
       x: e.clientX,
@@ -227,6 +280,7 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
 
     const end = () => {
       drag.current = null
+      dragEnd.current.end = undefined
       setDragId(null)
       window.removeEventListener('pointermove', move)
       window.removeEventListener('pointerup', up)
@@ -254,9 +308,25 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
     const cancel = (ev: globalThis.PointerEvent) => {
       if (ev.pointerId === d.pointerId) end()
     }
+    dragEnd.current.end = end
     window.addEventListener('pointermove', move)
     window.addEventListener('pointerup', up)
     window.addEventListener('pointercancel', cancel)
+  }
+
+  // Части на поле перебираются сверху вниз: нажатие берёт ту, в контур которой попало.
+  const grabFromBoard = (e: PointerEvent<HTMLDivElement>) => {
+    const play = playRef.current?.getBoundingClientRect()
+    if (!game || !shape || !play) return
+    const px = e.clientX - play.left
+    const py = e.clientY - play.top
+    for (let i = game.loose.length - 1; i >= 0; i--) {
+      const [id, x, y] = game.loose[i]
+      const p = shape.pieces[id]
+      const pos = loosePosition(p, x, y)
+      if (pos && hitTest(p.path, p.bx + (px - pos.left) / scale, p.by + (py - pos.top) / scale))
+        return grab(e, id, 'board', px - pos.left, py - pos.top)
+    }
   }
 
   const solved = game?.solvedIn !== undefined
@@ -283,12 +353,13 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
         >
           <SparklesIcon on={hint} />
         </button>
-        <button className="toolbar__btn" onClick={() => setChoosing(true)}>
+        {/* Во время перетаскивания второй палец не начинает новую игру: отпускание части записало бы старую */}
+        <button className="toolbar__btn" disabled={dragId !== null} onClick={() => setChoosing(true)}>
           New
         </button>
       </div>
 
-      <div className="puzzle__play" ref={playRef}>
+      <div className="puzzle__play" ref={playRef} onPointerDown={grabFromBoard}>
         {shape && frame && img && game && (
           <>
             <div className="puzzle__frame" style={frame}>
@@ -321,18 +392,32 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
                   img={img}
                   scale={scale}
                   className="puzzle__piece puzzle__piece--loose"
-                  style={{
-                    left: frame.left + (x - p.x + p.bx) * scale,
-                    top: frame.top + (y - p.y + p.by) * scale,
-                    visibility: dragId === id ? 'hidden' : undefined,
-                  }}
-                  onPointerDown={(e) => grab(e, id, 'board')}
+                  style={{ ...loosePosition(p, x, y), visibility: dragId === id ? 'hidden' : undefined }}
                 />
               )
             })}
           </>
         )}
-        {!choosing && !img && <p className="puzzle__status">Loading…</p>}
+        {!choosing && !img && (
+          <div className="puzzle__status">
+            {imgError ? (
+              <p>
+                The photo did not load.{' '}
+                <button
+                  className="puzzle-reset puzzle-reset--confirm"
+                  onClick={() => {
+                    setImgError(false)
+                    setAttempt((a) => a + 1)
+                  }}
+                >
+                  Try again
+                </button>
+              </p>
+            ) : (
+              <p>Loading…</p>
+            )}
+          </div>
+        )}
       </div>
 
       {solved ? (
@@ -404,11 +489,17 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
               </button>
             ))}
           </div>
-          {game && !solved && (
-            <button className="puzzle__back puzzle__back--dialog" onClick={() => setChoosing(false)}>
-              Continue current puzzle
+          {/* Окно закрывает и панель с «← Photos»: без этих кнопок в режиме приложения из него не выйти */}
+          <div className="puzzle__dialog-links">
+            {game && (
+              <button className="puzzle__back puzzle__back--dialog" onClick={() => setChoosing(false)}>
+                {solved ? 'Back to result' : 'Continue current puzzle'}
+              </button>
+            )}
+            <button className="puzzle__back puzzle__back--dialog" onClick={onExit}>
+              ← Photos
             </button>
-          )}
+          </div>
         </div>
       )}
     </div>
