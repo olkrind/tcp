@@ -16,6 +16,7 @@ import {
 } from '../puzzle.ts'
 
 interface Drag {
+  /** -1 — касание ленты между частями: только прокрутка */
   id: number
   from: 'tray' | 'board'
   pointerId: number
@@ -27,6 +28,8 @@ interface Drag {
   x: number
   y: number
   started: boolean
+  /** прокрутка ленты пальцем: scrollLeft в начале касания, скорость px/мс */
+  scrolling?: { from: number; v: number; t: number }
 }
 
 const formatDay = (ms: number) => new Date(ms).toLocaleDateString('ru-RU')
@@ -139,6 +142,36 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
     const holder = dragEnd.current
     return () => holder.end?.()
   }, [])
+
+  // На iOS долгое касание запускает выделение текста и меню браузера, CSS user-select его не останавливает.
+  // Касание поля и ленты отменяется целиком; кнопки работают как обычно.
+  const rootRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const el = rootRef.current
+    if (!el) return
+    const block = (e: TouchEvent) => {
+      if (!(e.target as Element).closest('button')) e.preventDefault()
+    }
+    el.addEventListener('touchstart', block, { passive: false })
+    return () => el.removeEventListener('touchstart', block)
+  }, [])
+
+  // Инерция ленты после прокрутки пальцем.
+  const glide = useRef(0)
+  const coast = (v: number) => {
+    let last = performance.now()
+    const step = (now: number) => {
+      const dt = now - last
+      last = now
+      v *= 0.95 ** (dt / (1000 / 60))
+      const tray = trayRef.current
+      if (!tray || Math.abs(v) < 0.02) return
+      tray.scrollLeft += v * dt
+      glide.current = requestAnimationFrame(step)
+    }
+    glide.current = requestAnimationFrame(step)
+  }
+  useEffect(() => () => cancelAnimationFrame(glide.current), [])
 
   const src = pickSize(photo, 1600).src
   useEffect(() => {
@@ -259,14 +292,15 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
   const grab = (e: PointerEvent<HTMLElement>, id: number, from: Drag['from'], ox?: number, oy?: number) => {
     if (e.button !== 0 || !shape || drag.current) return
     window.getSelection()?.removeAllRanges()
+    cancelAnimationFrame(glide.current)
     const p = shape.pieces[id]
     const fromTray = from === 'tray'
     const d: Drag = {
       id,
       from,
       pointerId: e.pointerId,
-      ox: ox ?? (p.bw * scale) / 2,
-      oy: oy ?? (p.bh * scale) / 2,
+      ox: ox ?? (p ? (p.bw * scale) / 2 : 0),
+      oy: oy ?? (p ? (p.bh * scale) / 2 : 0),
       sx: e.clientX,
       sy: e.clientY,
       x: e.clientX,
@@ -290,11 +324,25 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
       if (ev.pointerId !== d.pointerId) return
       d.x = ev.clientX
       d.y = ev.clientY
+      const tray = trayRef.current
+      if (d.scrolling && tray) {
+        const now = ev.timeStamp
+        const left = d.scrolling.from - (d.x - d.sx)
+        const dt = now - d.scrolling.t
+        if (dt > 0) d.scrolling.v = 0.8 * ((left - tray.scrollLeft) / dt) + 0.2 * d.scrolling.v
+        d.scrolling.t = now
+        tray.scrollLeft = left
+        return
+      }
       if (!d.started) {
         const dx = d.x - d.sx
         const dy = d.y - d.sy
-        if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) return end()
-        if (dy > -10) return
+        // Прокрутку ленты ведёт скрипт: касание отменено, чтобы долгое нажатие не выделяло текст (touchstart ниже).
+        if (Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy)) {
+          if (tray) d.scrolling = { from: tray.scrollLeft + dx, v: 0, t: ev.timeStamp }
+          return
+        }
+        if (dy > -10 || id < 0) return
         d.started = true
         setDragId(id)
       }
@@ -303,7 +351,8 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
     const up = (ev: globalThis.PointerEvent) => {
       if (ev.pointerId !== d.pointerId) return
       end()
-      if (d.started) drop(d)
+      if (d.scrolling) coast(d.scrolling.v)
+      else if (d.started) drop(d)
     }
     const cancel = (ev: globalThis.PointerEvent) => {
       if (ev.pointerId === d.pointerId) end()
@@ -333,7 +382,7 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
   const thumb = pickSize(photo, 640)
 
   return (
-    <div className="puzzle">
+    <div className="puzzle" ref={rootRef}>
       <div className="puzzle__bar">
         <button className="puzzle__back" onClick={onExit}>
           ← Photos
@@ -454,6 +503,12 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
           onWheel={(e) => {
             if (trayRef.current && Math.abs(e.deltaY) > Math.abs(e.deltaX)) trayRef.current.scrollLeft += e.deltaY
           }}
+          onPointerDown={(e) => {
+            const slot = (e.target as Element).closest<HTMLElement>('[data-piece]')
+            const id = slot ? Number(slot.dataset.piece) : -1
+            // Мышью лента прокручивается колесом и полосой прокрутки; пальцем — касанием в любом месте ленты.
+            if (id >= 0 || e.pointerType !== 'mouse') grab(e, id, 'tray')
+          }}
         >
           {shape &&
             img &&
@@ -461,8 +516,8 @@ export function Puzzle({ storageKey, photo, onExit }: { storageKey: string; phot
               <div
                 key={id}
                 className="puzzle__slot"
+                data-piece={id}
                 style={{ visibility: dragId === id ? 'hidden' : undefined }}
-                onPointerDown={(e) => grab(e, id, 'tray')}
               >
                 <PieceCanvas piece={shape.pieces[id]} img={img} scale={trayScale} />
               </div>

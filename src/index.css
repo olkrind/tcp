@@ -741,8 +741,8 @@ button {
   overflow-y: hidden;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   background: #fafafa;
-  /* Пальцем: вбок — прокрутка ленты, вверх — часть берётся из ленты (Puzzle.tsx) */
-  touch-action: pan-x;
+  /* Пальцем: вбок — прокрутка ленты, вверх — часть берётся из ленты; прокрутку ведёт Puzzle.tsx */
+  touch-action: none;
 }
 
 .puzzle__slot {
