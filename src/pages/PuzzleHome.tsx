@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router'
 import { coverOf, formatDate, puzzleAlbums, puzzlePhotos, siteConfig } from '../data.ts'
 import { AlbumCard } from '../components/AlbumCard.tsx'
-import { SiteFooter } from '../components/SiteFooter.tsx'
+import { AlbumsHeader } from '../components/AlbumsHeader.tsx'
 import { useNoSelect } from '../useNoSelect.ts'
 
 export function PuzzleHome() {
@@ -13,12 +12,7 @@ export function PuzzleHome() {
 
   return (
     <>
-      <header className="home-header">
-        <h1>Puzzle Me</h1>
-        <p>
-          <Link to="/albums/">← All albums</Link>
-        </p>
-      </header>
+      <AlbumsHeader active="/puzzle/" />
 
       <main className="album-list">
         {puzzleAlbums.map((album) => {
@@ -35,7 +29,6 @@ export function PuzzleHome() {
           )
         })}
       </main>
-      <SiteFooter />
     </>
   )
 }

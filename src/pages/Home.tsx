@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router'
-import { albums, coverOf, formatDate, photoCount, puzzleAlbums, siteConfig } from '../data.ts'
+import { albums, coverOf, formatDate, photoCount, siteConfig } from '../data.ts'
 import { AlbumCard } from '../components/AlbumCard.tsx'
-import { SocialLinks } from '../components/SocialLinks.tsx'
+import { AlbumsHeader } from '../components/AlbumsHeader.tsx'
 
 export function Home() {
   useEffect(() => {
@@ -11,13 +10,7 @@ export function Home() {
 
   return (
     <>
-      <header className="home-header">
-        <h1>{siteConfig.title}</h1>
-        <p>
-          <Link to="/">{siteConfig.name}</Link>
-        </p>
-        <SocialLinks />
-      </header>
+      <AlbumsHeader active="/albums/" />
 
       <main className="album-list">
         {albums.length === 0 && <p className="empty">No albums yet.</p>}
@@ -31,15 +24,6 @@ export function Home() {
             count={photoCount(album.photos)}
           />
         ))}
-        {puzzleAlbums.length > 0 && (
-          <AlbumCard
-            to="/puzzle/"
-            cover={coverOf(puzzleAlbums[0])}
-            date="Game"
-            title="Puzzle Me"
-            count={`${puzzleAlbums.length} ${puzzleAlbums.length === 1 ? 'album' : 'albums'}`}
-          />
-        )}
       </main>
     </>
   )
