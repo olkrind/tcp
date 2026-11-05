@@ -3,6 +3,7 @@ import { MasonryPhotoAlbum, type Photo } from 'react-photo-album'
 import 'react-photo-album/masonry.css'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 import { Puzzle } from '../components/Puzzle.tsx'
+import { PuzzleSeams } from '../components/PuzzleSeams.tsx'
 import { SiteFooter } from '../components/SiteFooter.tsx'
 import { pickSize, puzzleAlbums, puzzlePhotos, siteConfig } from '../data.ts'
 import { formatTime, loadGame, loadResults, puzzleKey, resetPuzzle } from '../puzzle.ts'
@@ -114,6 +115,7 @@ export function PuzzleAlbumPage() {
   return (
     <>
       <header className="home-header">
+        <PuzzleSeams />
         <h1>{album.title}</h1>
         <p>
           <Link to="/puzzle/">← Puzzle Me</Link> · Choose a photo

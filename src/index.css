@@ -579,6 +579,31 @@ button {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Шапка раздела пазла: тонкие стыки пазла под наклоном на белом (PuzzleSeams.tsx), к низу шапки узор сходит на нет */
+.puzzle-section .home-header {
+  position: relative;
+  isolation: isolate;
+}
+
+.puzzle-seams {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Затухание к низу шапки — поверх узора, под текстом */
+.puzzle-section .home-header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(transparent 40%, var(--bg));
+  pointer-events: none;
+}
+
 .puzzle-empty {
   padding: 48px 0;
   text-align: center;

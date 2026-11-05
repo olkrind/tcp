@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 import { siteConfig } from '../data.ts'
+import { PuzzleSeams } from './PuzzleSeams.tsx'
 import { SocialLinks } from './SocialLinks.tsx'
 
 const TABS = [
@@ -12,6 +13,7 @@ export function AlbumsHeader({ active }: { active: '/albums/' | '/puzzle/' }) {
   return (
     <>
       <header className="home-header">
+        {active === '/puzzle/' && <PuzzleSeams />}
         <h1>{siteConfig.title}</h1>
         <p>
           <Link to="/">{siteConfig.name}</Link>
